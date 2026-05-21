@@ -1,6 +1,37 @@
 # Changelog
 
 ## [Unreleased]
+## [0.4.0] - 2026-05-20 - RC3 Medplum Projects + dual frontend
+
+Arquitectural reframing del deployment: separación admin/clinical/patient + multi-tenancy.
+
+### Added
+- ADR-033: Separación de planes admin/clinical/patient (3 frontends, 1 backend)
+- ADR-034: Medplum Projects multi-tenancy con Project `biowellness`
+- ADR-035: Portal paciente diferido a V2 (jul-ago) basado en foomedical
+- ADR-036: URLs canónicas (api.medplum.com.ar) + deprecación api.biowellness.ar
+- docs/architecture-deployment.md — documento canónico de arquitectura con diagramas
+- docs/deployment-runbook.md — step-by-step setup desde infra cero
+- docs/sprint-plan-rc3-adjusted.md — sprint plan ajustado con buffer adicional
+
+### Changed
+- README.md reescrito con arquitectura nueva
+- CLAUDE.md reescrito con context para Claude Code
+- .env.example actualizado: MEDPLUM_BASE_URI canónica + MEDPLUM_PROJECT_ID + 3 ClientApp IDs
+- scripts/deploy.ts ahora soporta MEDPLUM_PROJECT_ID + --dry-run + --filter
+
+### Architecture
+- Backend canónico: api.medplum.com.ar (api.biowellness.ar deprecada)
+- 3 frontends sobre 1 backend único:
+  - app.biowellness.ar → chart clínico (fork medplum-chart-demo)
+  - app.medplum.com.ar → admin tooling (Medplum App OSS, sin custom code)
+  - portal.biowellness.ar → portal paciente (V2 foomedical fork)
+
+### Impact
+- Sprint plan MVP: ~1 semana de buffer adicional ganado
+- Frontend custom: 22 pantallas → 12 pantallas (admin queda fuera de scope custom)
+- Portal paciente: diferido a V2 sin afectar MVP 29 jun
+
 ## [0.3.0] - 2026-05-19 - RC2 BIOWELLNESS reframing
 
 Major reframing of project after staff confirmation + legal consent document.
