@@ -1,0 +1,10 @@
+{
+  "resourceType": "Bot",
+  "id": "gate-evaluator",
+  "identifier": [{ "system": "https://biowellness.ar/fhir/identifier/bot", "value": "BW-BOT-004" }],
+  "name": "gate-evaluator",
+  "description": "Listener: detecta cuando gates de fase se cumplen y dispara avance vía Task code=phase-gate-passed → apply-plandefinition. Detecta regresiones y pausa interventions de alta intensidad.",
+  "runtimeVersion": "awslambda",
+  "version": "0.1.0",
+  "auditEnabled": true
+}

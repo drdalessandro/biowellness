@@ -1,0 +1,10 @@
+{
+  "resourceType": "Bot",
+  "id": "evaluate-fenotipo",
+  "identifier": [{ "system": "https://biowellness.ar/fhir/identifier/bot", "value": "BW-BOT-002" }],
+  "name": "evaluate-fenotipo",
+  "description": "Implementa OperationDefinition $evaluate-fenotipo. 3 capas: rules (Layer 1) + LLM (Layer 2 condicional) + Task humano (Layer 3).",
+  "runtimeVersion": "awslambda",
+  "version": "0.1.0",
+  "auditEnabled": true
+}
