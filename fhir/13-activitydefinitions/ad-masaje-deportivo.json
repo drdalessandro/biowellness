@@ -1,0 +1,18 @@
+{
+  "resourceType": "ActivityDefinition",
+  "id": "ad-masaje-deportivo",
+  "url": "https://biowellness.ar/fhir/ActivityDefinition/ad-masaje-deportivo",
+  "version": "0.1.0",
+  "name": "MasajeDeportivo",
+  "title": "Masaje Deportivo / Descontracturante",
+  "status": "draft",
+  "publisher": "BIOWELLNESS Argentina",
+  "description": "Masaje descontracturante (45-60 min). Reduce tensión muscular, disminuye cortisol inicial, prepara cuerpo para Recovery Pro. Realizado en sala osteopatía o sala dedicada.",
+  "kind": "ServiceRequest",
+  "code": {
+    "coding": [{ "system": "https://biowellness.ar/fhir/CodeSystem/iscca-tipo-intervencion", "code": "masaje-terapeutico" }]
+  },
+  "extension": [
+    { "url": "https://biowellness.ar/fhir/StructureDefinition/iscca-nivel-evidencia", "valueCode": "nivel-1-estandar" }
+  ]
+}

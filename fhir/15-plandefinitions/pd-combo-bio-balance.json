@@ -1,0 +1,51 @@
+{
+  "resourceType": "PlanDefinition",
+  "id": "pd-combo-bio-balance",
+  "url": "https://biowellness.ar/fhir/PlanDefinition/pd-combo-bio-balance",
+  "version": "0.1.0",
+  "name": "ComboBioBalance",
+  "title": "Combo BIO BALANCE — Longevidad y Gestión del Estrés",
+  "status": "draft",
+  "experimental": true,
+  "date": "2026-05-19",
+  "publisher": "BIOWELLNESS Argentina",
+  "description": "Combo BIO BALANCE: estrés crónico, alteración del sueño, desbalance neuroendocrino. Secuencia: Masaje descontracturante → Recovery Pro (modo relajación) → Yoga/Mindfulness. Reduce cortisol inicial via masaje; reset SNA via contraste suave; consolidación parasimpática via mindfulness en cerebro post-endorfinas.",
+  "topic": [
+    {
+      "coding": [
+        { "system": "https://biowellness.ar/fhir/CodeSystem/bw-combo", "code": "bio-balance", "display": "BIO BALANCE" }
+      ]
+    }
+  ],
+  "library": ["https://biowellness.ar/fhir/Library/biowellness-decision-logic|0.3.0"],
+  "action": [
+    {
+      "id": "balance-secuencia",
+      "title": "Secuencia Balance",
+      "selectionBehavior": "all",
+      "action": [
+        {
+          "id": "balance-1-masaje",
+          "title": "Fase 1: Masaje descontracturante (45-60 min)",
+          "definitionCanonical": "https://biowellness.ar/fhir/ActivityDefinition/ad-masaje-deportivo|0.1.0"
+        },
+        {
+          "id": "balance-2-recovery-relax",
+          "title": "Fase 2: Recovery Pro modo relajación (~30 min, contraste suave)",
+          "definitionCanonical": "https://biowellness.ar/fhir/ActivityDefinition/ad-recovery-pro-circuito|0.1.0",
+          "relatedAction": [
+            { "actionId": "balance-1-masaje", "relationship": "after", "offsetDuration": { "value": 10, "unit": "min" } }
+          ]
+        },
+        {
+          "id": "balance-3-mindfulness",
+          "title": "Fase 3: Yoga / Meditación / Mindfulness (30 min)",
+          "definitionCanonical": "https://biowellness.ar/fhir/ActivityDefinition/ad-yoga-mindfulness|0.1.0",
+          "relatedAction": [
+            { "actionId": "balance-2-recovery-relax", "relationship": "after", "offsetDuration": { "value": 10, "unit": "min" } }
+          ]
+        }
+      ]
+    }
+  ]
+}

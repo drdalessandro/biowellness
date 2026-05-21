@@ -1,0 +1,29 @@
+{
+  "resourceType": "ObservationDefinition",
+  "id": "obs-def-igf-1",
+  "url": "https://biowellness.ar/fhir/ObservationDefinition/obs-def-igf-1",
+  "version": "0.1.0",
+  "code": {
+    "coding": [{ "system": "http://loinc.org", "code": "2484-4", "display": "Insulin-like growth factor 1 [Mass/volume] in Serum or Plasma" }]
+  },
+  "preferredReportName": "IGF-1",
+  "quantitativeDetails": {
+    "unit": { "coding": [{ "code": "ng/mL" }] }
+  },
+  "qualifiedInterval": [
+    {
+      "category": "reference",
+      "gender": "male",
+      "age": { "low": { "value": 30, "unit": "a" }, "high": { "value": 60, "unit": "a" } },
+      "range": { "low": { "value": 110 }, "high": { "value": 280 } },
+      "context": { "coding": [{ "code": "lab-reference" }] }
+    },
+    {
+      "category": "reference",
+      "gender": "female",
+      "age": { "low": { "value": 30, "unit": "a" }, "high": { "value": 60, "unit": "a" } },
+      "range": { "low": { "value": 100 }, "high": { "value": 270 } },
+      "context": { "coding": [{ "code": "lab-reference" }] }
+    }
+  ]
+}

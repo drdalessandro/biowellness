@@ -1,0 +1,84 @@
+{
+  "resourceType": "Organization",
+  "id": "biowellness",
+  "identifier": [
+    {
+      "use": "official",
+      "system": "https://www.afip.gob.ar/cuit",
+      "value": "TODO-CUIT-SHANTI-OM-SRL"
+    },
+    {
+      "system": "https://biowellness.ar/fhir/identifier/organization",
+      "value": "BW-ORG-001"
+    }
+  ],
+  "active": true,
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+          "code": "prov",
+          "display": "Healthcare Provider"
+        }
+      ]
+    }
+  ],
+  "name": "BIOWELLNESS",
+  "alias": [
+    "Shanti Om SRL",
+    "BIOWELLNESS San Isidro",
+    "BIOWELLNESS Optimización Biológica"
+  ],
+  "telecom": [
+    {
+      "system": "email",
+      "value": "info@biowellness.ar",
+      "use": "work"
+    }
+  ],
+  "address": [
+    {
+      "use": "work",
+      "type": "both",
+      "line": ["Roque Sáenz Peña 530"],
+      "city": "San Isidro",
+      "state": "Buenos Aires",
+      "country": "AR"
+    }
+  ],
+  "contact": [
+    {
+      "purpose": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/contactentity-type",
+            "code": "ADMIN"
+          }
+        ]
+      },
+      "name": {
+        "text": "Dr. Alejandro Sergio D'Alessandro"
+      },
+      "telecom": [
+        {
+          "system": "email",
+          "value": "alejandro@biowellness.ar"
+        }
+      ]
+    },
+    {
+      "purpose": {
+        "coding": [
+          {
+            "system": "https://biowellness.ar/fhir/CodeSystem/iscca-contact-purpose",
+            "code": "director-medico"
+          }
+        ]
+      },
+      "name": {
+        "text": "Dr. Conrado López Alonso"
+      }
+    }
+  ]
+}

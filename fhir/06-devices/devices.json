@@ -1,0 +1,186 @@
+{
+  "resourceType": "Bundle",
+  "id": "biowellness-devices",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:bw-dev-hbot-mono",
+      "resource": {
+        "resourceType": "Device",
+        "id": "BW-DEV-HBOT-MONO",
+        "identifier": [
+          { "system": "https://biowellness.ar/fhir/identifier/device", "value": "BW-DEV-HBOT-MONO" }
+        ],
+        "status": "active",
+        "type": {
+          "coding": [
+            { "system": "http://snomed.info/sct", "code": "21082005", "display": "Hyperbaric oxygen chamber" }
+          ],
+          "text": "Cámara HBOT monoplaza"
+        },
+        "owner": { "reference": "Organization/biowellness" },
+        "location": { "reference": "Location/loc-hbot-monoplaza" },
+        "property": [
+          { "type": { "text": "capacidad-personas" }, "valueQuantity": [{ "value": 1, "unit": "person" }] },
+          { "type": { "text": "presion-maxima-ata" }, "valueQuantity": [{ "value": 2.5, "unit": "ATA" }] }
+        ],
+        "note": [
+          { "text": "Cámara individual rígida. Presión 1.5-2.5 ATA. Capacidad: 1 paciente por sesión." }
+        ]
+      },
+      "request": { "method": "PUT", "url": "Device/BW-DEV-HBOT-MONO" }
+    },
+    {
+      "fullUrl": "urn:uuid:bw-dev-hbot-multi-a",
+      "resource": {
+        "resourceType": "Device",
+        "id": "BW-DEV-HBOT-MULTI-A",
+        "identifier": [
+          { "system": "https://biowellness.ar/fhir/identifier/device", "value": "BW-DEV-HBOT-MULTI-A" }
+        ],
+        "status": "active",
+        "type": {
+          "coding": [
+            { "system": "http://snomed.info/sct", "code": "21082005", "display": "Hyperbaric oxygen chamber" }
+          ],
+          "text": "Cámara HBOT multiplaza A (4 lugares)"
+        },
+        "owner": { "reference": "Organization/biowellness" },
+        "location": { "reference": "Location/loc-hbot-multiplaza-a" },
+        "property": [
+          { "type": { "text": "capacidad-personas" }, "valueQuantity": [{ "value": 4, "unit": "person" }] },
+          { "type": { "text": "presion-maxima-ata" }, "valueQuantity": [{ "value": 2.5, "unit": "ATA" }] }
+        ],
+        "note": [
+          { "text": "Cámara multiplaza grande. 4 pacientes simultáneos. Requiere operator dedicado durante toda la sesión." }
+        ]
+      },
+      "request": { "method": "PUT", "url": "Device/BW-DEV-HBOT-MULTI-A" }
+    },
+    {
+      "fullUrl": "urn:uuid:bw-dev-hbot-multi-b",
+      "resource": {
+        "resourceType": "Device",
+        "id": "BW-DEV-HBOT-MULTI-B",
+        "identifier": [
+          { "system": "https://biowellness.ar/fhir/identifier/device", "value": "BW-DEV-HBOT-MULTI-B" }
+        ],
+        "status": "active",
+        "type": {
+          "coding": [
+            { "system": "http://snomed.info/sct", "code": "21082005", "display": "Hyperbaric oxygen chamber" }
+          ],
+          "text": "Cámara HBOT multiplaza B (2 lugares)"
+        },
+        "owner": { "reference": "Organization/biowellness" },
+        "location": { "reference": "Location/loc-hbot-multiplaza-b" },
+        "property": [
+          { "type": { "text": "capacidad-personas" }, "valueQuantity": [{ "value": 2, "unit": "person" }] },
+          { "type": { "text": "presion-maxima-ata" }, "valueQuantity": [{ "value": 2.5, "unit": "ATA" }] }
+        ],
+        "note": [
+          { "text": "Cámara multiplaza pequeña. 2 pacientes simultáneos." }
+        ]
+      },
+      "request": { "method": "PUT", "url": "Device/BW-DEV-HBOT-MULTI-B" }
+    },
+    {
+      "fullUrl": "urn:uuid:bw-dev-ihht-1",
+      "resource": {
+        "resourceType": "Device",
+        "id": "BW-DEV-IHHT-1",
+        "identifier": [
+          { "system": "https://biowellness.ar/fhir/identifier/device", "value": "BW-DEV-IHHT-1" }
+        ],
+        "status": "active",
+        "manufacturer": "Longfian",
+        "modelNumber": "Jay 20H",
+        "type": {
+          "text": "Equipo IHHT Longfian Jay 20H"
+        },
+        "owner": { "reference": "Organization/biowellness" },
+        "location": { "reference": "Location/loc-ihht-1" }
+      },
+      "request": { "method": "PUT", "url": "Device/BW-DEV-IHHT-1" }
+    },
+    {
+      "fullUrl": "urn:uuid:bw-dev-ihht-2",
+      "resource": {
+        "resourceType": "Device",
+        "id": "BW-DEV-IHHT-2",
+        "identifier": [
+          { "system": "https://biowellness.ar/fhir/identifier/device", "value": "BW-DEV-IHHT-2" }
+        ],
+        "status": "active",
+        "manufacturer": "Longfian",
+        "modelNumber": "Jay 20H",
+        "type": {
+          "text": "Equipo IHHT Longfian Jay 20H"
+        },
+        "owner": { "reference": "Organization/biowellness" },
+        "location": { "reference": "Location/loc-ihht-2" }
+      },
+      "request": { "method": "PUT", "url": "Device/BW-DEV-IHHT-2" }
+    },
+    {
+      "fullUrl": "urn:uuid:bw-dev-sauna-1",
+      "resource": {
+        "resourceType": "Device",
+        "id": "BW-DEV-SAUNA-1",
+        "status": "active",
+        "type": { "text": "Sauna finlandesa (80-90°C)" },
+        "owner": { "reference": "Organization/biowellness" },
+        "location": { "reference": "Location/loc-recovery-pro-1" }
+      },
+      "request": { "method": "PUT", "url": "Device/BW-DEV-SAUNA-1" }
+    },
+    {
+      "fullUrl": "urn:uuid:bw-dev-cold-plunge-1",
+      "resource": {
+        "resourceType": "Device",
+        "id": "BW-DEV-COLD-PLUNGE-1",
+        "status": "active",
+        "type": { "text": "Cold plunge tank (3-5°C)" },
+        "owner": { "reference": "Organization/biowellness" },
+        "location": { "reference": "Location/loc-recovery-pro-1" }
+      },
+      "request": { "method": "PUT", "url": "Device/BW-DEV-COLD-PLUNGE-1" }
+    },
+    {
+      "fullUrl": "urn:uuid:bw-dev-red-light-panel",
+      "resource": {
+        "resourceType": "Device",
+        "id": "BW-DEV-RED-LIGHT-PANEL",
+        "status": "active",
+        "type": { "text": "Panel red light + near infrared (660+850 nm)" },
+        "owner": { "reference": "Organization/biowellness" },
+        "location": { "reference": "Location/loc-red-light" }
+      },
+      "request": { "method": "PUT", "url": "Device/BW-DEV-RED-LIGHT-PANEL" }
+    },
+    {
+      "fullUrl": "urn:uuid:bw-dev-botas-compresion-1",
+      "resource": {
+        "resourceType": "Device",
+        "id": "BW-DEV-BOTAS-1",
+        "status": "active",
+        "type": { "text": "Botas compresión neumática secuencial + crio integrada" },
+        "owner": { "reference": "Organization/biowellness" },
+        "location": { "reference": "Location/loc-recuperacion-1" }
+      },
+      "request": { "method": "PUT", "url": "Device/BW-DEV-BOTAS-1" }
+    },
+    {
+      "fullUrl": "urn:uuid:bw-dev-botas-compresion-2",
+      "resource": {
+        "resourceType": "Device",
+        "id": "BW-DEV-BOTAS-2",
+        "status": "active",
+        "type": { "text": "Botas compresión neumática secuencial + crio integrada" },
+        "owner": { "reference": "Organization/biowellness" },
+        "location": { "reference": "Location/loc-recuperacion-2" }
+      },
+      "request": { "method": "PUT", "url": "Device/BW-DEV-BOTAS-2" }
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "resourceType": "ObservationDefinition",
+  "id": "obs-def-hba1c",
+  "url": "https://biowellness.ar/fhir/ObservationDefinition/obs-def-hba1c",
+  "version": "0.1.0",
+  "code": {
+    "coding": [{ "system": "http://loinc.org", "code": "4548-4", "display": "Hemoglobin A1c/Hemoglobin.total in Blood" }]
+  },
+  "preferredReportName": "HbA1c",
+  "quantitativeDetails": {
+    "unit": { "coding": [{ "system": "http://unitsofmeasure.org", "code": "%" }] },
+    "decimalPrecision": 1
+  },
+  "qualifiedInterval": [
+    {
+      "category": "reference",
+      "range": { "low": { "value": 4.0, "unit": "%" }, "high": { "value": 5.6, "unit": "%" } },
+      "context": { "coding": [{ "system": "https://biowellness.ar/fhir/CodeSystem/iscca-interval-context", "code": "lab-reference" }] }
+    },
+    {
+      "category": "reference",
+      "range": { "high": { "value": 5.2, "unit": "%" } },
+      "context": { "coding": [{ "system": "https://biowellness.ar/fhir/CodeSystem/iscca-interval-context", "code": "gate-optimizacion-completa" }] }
+    },
+    {
+      "category": "critical",
+      "range": { "low": { "value": 7.0, "unit": "%" } },
+      "context": { "coding": [{ "system": "https://biowellness.ar/fhir/CodeSystem/iscca-interval-context", "code": "critico-alerta" }] }
+    }
+  ]
+}

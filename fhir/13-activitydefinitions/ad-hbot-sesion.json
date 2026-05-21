@@ -1,0 +1,30 @@
+{
+  "resourceType": "ActivityDefinition",
+  "id": "ad-hbot-sesion",
+  "url": "https://biowellness.ar/fhir/ActivityDefinition/ad-hbot-sesion",
+  "version": "0.2.0",
+  "name": "HbotSesion",
+  "title": "HBOT — Sesión de Oxigenoterapia Hiperbárica",
+  "status": "draft",
+  "publisher": "BIOWELLNESS Argentina",
+  "description": "Sesión HBOT 60 min, presión 1.5-2.0 ATA. Cualquiera de las 3 cámaras (monoplaza 1L, multiplaza A 4L, multiplaza B 2L). Total 7 lugares simultáneos. Bottleneck operativo: 2 HBOT operators (Varela + Boltruchek).",
+  "kind": "ServiceRequest",
+  "code": {
+    "coding": [{ "system": "https://biowellness.ar/fhir/CodeSystem/iscca-tipo-intervencion", "code": "hbot" }]
+  },
+  "extension": [
+    { "url": "https://biowellness.ar/fhir/StructureDefinition/iscca-nivel-evidencia", "valueCode": "nivel-1-estandar" },
+    {
+      "url": "https://biowellness.ar/fhir/StructureDefinition/iscca-capacidad-operativa-diaria",
+      "extension": [
+        { "url": "maxDailySessions", "valueInteger": 30 },
+        { "url": "concurrentSessions", "valueInteger": 7 },
+        { "url": "bottleneck", "valueString": "2 HBOT operators (Varela + Boltruchek), no la cámara" }
+      ]
+    },
+    {
+      "url": "https://biowellness.ar/fhir/StructureDefinition/iscca-pre-procedure-gate",
+      "valueString": "%library.pre-hbot-seguro"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "resourceType": "AccessPolicy",
+  "id": "ap-hbot-operator",
+  "name": "ap-hbot-operator",
+  "description": "AccessPolicy del HBOT operator (rename de ap-hiperbarista en v0.2.0). Aplicable a Evangelina Varela y Nikita Boltruchek (rol primario para Nikita; cuando Nikita opera osteopatía aplica ap-osteopata).",
+  "resource": [
+    {
+      "resourceType": "Patient",
+      "readonly": true
+    },
+    {
+      "resourceType": "Appointment",
+      "readonly": false,
+      "criteria": "Appointment?serviceCategory=hbot"
+    },
+    {
+      "resourceType": "Encounter",
+      "readonly": false,
+      "criteria": "Encounter?serviceType=hbot"
+    },
+    {
+      "resourceType": "Observation",
+      "readonly": false,
+      "criteria": "Observation?category=hbot-session-metrics"
+    },
+    {
+      "resourceType": "Procedure",
+      "readonly": false,
+      "criteria": "Procedure?code=hbot-session"
+    },
+    {
+      "resourceType": "Task",
+      "readonly": false,
+      "criteria": "Task?owner=Practitioner/{{currentUser}}"
+    },
+    {
+      "resourceType": "Device",
+      "readonly": true
+    },
+    {
+      "resourceType": "Location",
+      "readonly": true
+    },
+    {
+      "resourceType": "Schedule",
+      "readonly": true
+    },
+    {
+      "resourceType": "Slot",
+      "readonly": false,
+      "criteria": "Slot?schedule.actor=Device/hbot-*"
+    }
+  ]
+}

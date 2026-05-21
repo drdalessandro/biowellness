@@ -1,0 +1,18 @@
+{
+  "resourceType": "ObservationDefinition",
+  "id": "obs-def-dhea-s",
+  "url": "https://biowellness.ar/fhir/ObservationDefinition/obs-def-dhea-s",
+  "version": "0.1.0",
+  "code": {
+    "coding": [{ "system": "http://loinc.org", "code": "2191-5", "display": "Dehydroepiandrosterone sulfate [Mass/volume] in Serum or Plasma" }]
+  },
+  "preferredReportName": "DHEA-S",
+  "quantitativeDetails": { "unit": { "coding": [{ "code": "ug/dL" }] } },
+  "qualifiedInterval": [
+    {
+      "category": "reference",
+      "context": { "coding": [{ "code": "lab-reference" }] },
+      "condition": "Ranges adjusted by age and gender - calibrate with equipo médico"
+    }
+  ]
+}

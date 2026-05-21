@@ -1,0 +1,199 @@
+{
+  "resourceType": "Questionnaire",
+  "id": "q-consent-master",
+  "url": "https://biowellness.ar/fhir/Questionnaire/q-consent-master",
+  "version": "1.0.0",
+  "name": "ConsentMasterBiowellness",
+  "title": "Consentimiento Informado BIOWELLNESS — Versión 1.0 Abril 2026",
+  "status": "active",
+  "subjectType": ["Patient"],
+  "date": "2026-04-15",
+  "publisher": "BIOWELLNESS — Shanti Om SRL",
+  "description": "Consentimiento Informado para servicios de optimización biológica. Base: documento legal Versión 1.0 Abril 2026 (Shanti Om SRL, redacción legal aprobada). Estructura: 8 secciones del documento + sección 7-bis con autorizaciones digitales adicionales. Firma única en sección 8 cubre todas las autorizaciones. Compatible con uso analógico (papel) y digital. Opción I del ADR-032.",
+  "purpose": "Recolectar consentimiento informado integral para todos los servicios de BIOWELLNESS, incluyendo opt-ins digitales para IA, wearables, comunicaciones y cross-org.",
+  "copyright": "© Shanti Om SRL 2026. Documento legal aprobado.",
+  "item": [
+    {
+      "linkId": "section-1-datos-cliente",
+      "text": "1. Datos del Cliente",
+      "type": "group",
+      "item": [
+        { "linkId": "1.1-apellido-nombre", "text": "Apellido y nombre completo", "type": "string", "required": true },
+        { "linkId": "1.2-fecha-nacimiento", "text": "Fecha de nacimiento", "type": "date", "required": true },
+        { "linkId": "1.3-dni-pasaporte", "text": "DNI / Pasaporte N°", "type": "string", "required": true },
+        { "linkId": "1.4-telefono", "text": "Teléfono de contacto", "type": "string", "required": true },
+        { "linkId": "1.5-email", "text": "Correo electrónico", "type": "string", "required": true },
+        { "linkId": "1.6-fecha-sesion", "text": "Fecha de la sesión", "type": "date" },
+        { "linkId": "1.7-medico-externo", "text": "Médico / profesional tratante externo (si aplica)", "type": "string" }
+      ]
+    },
+    {
+      "linkId": "section-2-descripcion-servicios",
+      "text": "2. Descripción de los Servicios",
+      "type": "display",
+      "_text": {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/rendering-markdown",
+            "valueMarkdown": "BIOWELLNESS es un centro de optimización biológica que ofrece protocolos orientados a la recuperación, el rendimiento y el bienestar integral. Los servicios incluidos en este consentimiento son:\n\n– Oxigenoterapia Hiperbárica (HBOT)\n– Entrenamiento Hipóxico-Hiperóxico Intermitente (IHHT)\n– Fototerapia de luz roja / fotobiomodulación\n– Terapia de contraste (sauna 80°C + cold plunge 4°C)\n– **Terapias biológicas (requieren evaluación previa del Director Médico)**\n– Botas de compresión y crioterapia integrada\n– Masajes deportivos y terapéuticos\n– Yoga, meditación y mindfulness\n– Barra de alimentación saludable"
+          }
+        ]
+      }
+    },
+    {
+      "linkId": "section-3-declaracion-salud",
+      "text": "3. Declaración de Estado de Salud",
+      "type": "group",
+      "item": [
+        {
+          "linkId": "3.1-informacion-veraz",
+          "text": "Declaro que he informado verazmente a BIOWELLNESS sobre mi estado de salud actual",
+          "type": "boolean",
+          "required": true
+        },
+        {
+          "linkId": "3.2-condiciones-medicas",
+          "text": "He informado sobre todas mis condiciones médicas, cirugías recientes, medicamentos (incluyendo suplementos y anticoagulantes) y alergias conocidas",
+          "type": "boolean",
+          "required": true
+        },
+        {
+          "linkId": "3.3-embarazo",
+          "text": "En caso de embarazo, lo he comunicado al staff antes de iniciar cualquier protocolo",
+          "type": "boolean",
+          "required": true
+        },
+        {
+          "linkId": "3.4-sin-sustancias",
+          "text": "No me encuentro bajo los efectos de alcohol, drogas ni medicamentos que alteren la conciencia o el equilibrio",
+          "type": "boolean",
+          "required": true
+        }
+      ]
+    },
+    {
+      "linkId": "section-4-contraindicaciones",
+      "text": "4. Contraindicaciones Absolutas y Relativas",
+      "type": "group",
+      "item": [
+        {
+          "linkId": "4.1-hbot",
+          "text": "Contraindicaciones HBOT — declaro NO presentar ninguna de las siguientes sin haber informado al staff:",
+          "type": "choice",
+          "repeats": true,
+          "answerOption": [
+            { "valueString": "Neumotórax no tratado" },
+            { "valueString": "Infección respiratoria alta aguda" },
+            { "valueString": "Cirugía oído/nariz/tórax en últimos 30 días sin autorización médica" },
+            { "valueString": "Marcapasos o implantes electrónicos NO certificados para uso hiperbárico" },
+            { "valueString": "Claustrofobia severa no controlada" },
+            { "valueString": "Convulsiones no controladas" },
+            { "valueString": "NINGUNA de las anteriores" }
+          ]
+        },
+        {
+          "linkId": "4.2-ihht",
+          "text": "Contraindicaciones IHHT — declaro NO presentar:",
+          "type": "choice",
+          "repeats": true,
+          "answerOption": [
+            { "valueString": "Insuficiencia cardíaca descompensada o IAM <6 meses" },
+            { "valueString": "Presión arterial no controlada (>180/110 mmHg)" },
+            { "valueString": "EPOC estadio IV" },
+            { "valueString": "Trombosis venosa profunda activa" },
+            { "valueString": "NINGUNA de las anteriores" }
+          ]
+        },
+        {
+          "linkId": "4.3-contraste",
+          "text": "Contraindicaciones terapia de contraste (sauna + cold plunge) — declaro NO presentar:",
+          "type": "choice",
+          "repeats": true,
+          "answerOption": [
+            { "valueString": "Enfermedades CV graves no estabilizadas" },
+            { "valueString": "Raynaud severo u otras alteraciones vasculares periféricas severas" },
+            { "valueString": "Epilepsia no controlada" },
+            { "valueString": "NINGUNA de las anteriores" }
+          ]
+        }
+      ]
+    },
+    {
+      "linkId": "section-5-riesgos",
+      "text": "5. Riesgos y Efectos Adversos Posibles",
+      "type": "boolean",
+      "required": true,
+      "_text": {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/rendering-markdown",
+            "valueMarkdown": "He sido informado/a de que los servicios, si bien son seguros dentro de los protocolos establecidos, pueden presentar efectos adversos:\n\n– **HBOT:** barotrauma ótico, presión nasal, cansancio post-sesión\n– **IHHT:** mareos, cefalea leve, fatiga transitoria, palpitaciones\n– **Fototerapia:** sensibilidad ocular, irritación cutánea\n– **Terapia de contraste:** hipotermia leve, mareos, lipotimia, reacción vagal\n– **Botas de compresión:** incomodidad por presión\n– **Terapias biológicas:** reacciones locales, hematoma, infección, raramente reacciones alérgicas sistémicas\n\nAcepto asumir voluntariamente dichas posibilidades dentro de los márgenes normales de la práctica."
+          }
+        ]
+      },
+      "text": "Acepto los riesgos y efectos adversos descritos"
+    },
+    {
+      "linkId": "section-6-normas",
+      "text": "6. Normas de Conducta y Seguridad",
+      "type": "boolean",
+      "required": true,
+      "text": "Me comprometo a cumplir las normas de conducta y seguridad de BIOWELLNESS (informar malestar inmediatamente, no ingresar a cámara HBOT con objetos electrónicos/sintéticos, no ingresar bajo efectos de sustancias, respetar tiempos de sesión, hidratarme adecuadamente, no operar equipos sin supervisión, informar sobre prótesis/implantes)"
+    },
+    {
+      "linkId": "section-7-privacidad",
+      "text": "7. Privacidad y Tratamiento de Datos Personales (Ley 25.326)",
+      "type": "boolean",
+      "required": true,
+      "text": "Autorizo a BIOWELLNESS a registrar y conservar mis datos de salud en mi legajo personal, con acceso restringido al Director Médico y al personal autorizado. Entiendo que no serán cedidos a terceros salvo requerimiento judicial o autorización expresa, y que puedo solicitar acceso/rectificación/supresión vía info@biowellness.ar"
+    },
+    {
+      "linkId": "section-7bis-autorizaciones-digitales",
+      "text": "7-bis. Autorizaciones Digitales Adicionales (opcionales)",
+      "type": "group",
+      "item": [
+        {
+          "linkId": "7bis.1-layer2-ai",
+          "text": "Autorizo el uso de Inteligencia Artificial Capa 2 (modelos de lenguaje) para análisis complejo de mi fenotipo cuando el algoritmo de reglas (Capa 1) tenga baja confianza. Los datos se anonimizan antes del envío y la decisión final siempre la toma un médico humano.",
+          "type": "boolean"
+        },
+        {
+          "linkId": "7bis.2-wearables",
+          "text": "Autorizo a BIOWELLNESS a sincronizar datos de mis dispositivos vestibles (Oura Ring, Apple Watch, Garmin, etc.) para enriquecer mi seguimiento clínico",
+          "type": "boolean"
+        },
+        {
+          "linkId": "7bis.3-cross-org",
+          "text": "Autorizo la importación cross-organizacional de mis datos de salud previos desde EPA Bienestar IA (si aplica), para que mi historia clínica sea continua",
+          "type": "boolean"
+        },
+        {
+          "linkId": "7bis.4-comunicaciones",
+          "text": "Canales de comunicación que autorizo (marcar todos los que apliquen):",
+          "type": "choice",
+          "repeats": true,
+          "answerOption": [
+            { "valueString": "WhatsApp (notificaciones, recordatorios, resultados)" },
+            { "valueString": "Email (resúmenes, facturación, comunicaciones formales)" },
+            { "valueString": "SMS (recordatorios urgentes únicamente)" }
+          ]
+        }
+      ]
+    },
+    {
+      "linkId": "section-8-firma",
+      "text": "8. Declaración Final y Consentimiento",
+      "type": "group",
+      "item": [
+        { "linkId": "8.1-comprension", "text": "He leído y comprendido completamente el contenido de este documento", "type": "boolean", "required": true },
+        { "linkId": "8.2-preguntas", "text": "He tenido la oportunidad de realizar preguntas y todas han sido respondidas satisfactoriamente", "type": "boolean", "required": true },
+        { "linkId": "8.3-consentimiento", "text": "Consiento libre y voluntariamente recibir los servicios de BIOWELLNESS", "type": "boolean", "required": true },
+        { "linkId": "8.4-veracidad", "text": "La información declarada sobre mi estado de salud es completa y veraz", "type": "boolean", "required": true },
+        { "linkId": "8.5-revocacion", "text": "Entiendo que puedo revocar este consentimiento en cualquier momento", "type": "boolean", "required": true },
+        { "linkId": "8.6-firma-fecha", "text": "Fecha de firma", "type": "date", "required": true },
+        { "linkId": "8.7-firma-dni", "text": "DNI del firmante (cliente o responsable adulto si menor)", "type": "string", "required": true },
+        { "linkId": "8.8-legajo", "text": "N° de legajo (asignado por BIOWELLNESS)", "type": "string" }
+      ]
+    }
+  ]
+}

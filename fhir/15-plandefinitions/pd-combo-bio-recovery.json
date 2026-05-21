@@ -1,0 +1,57 @@
+{
+  "resourceType": "PlanDefinition",
+  "id": "pd-combo-bio-recovery",
+  "url": "https://biowellness.ar/fhir/PlanDefinition/pd-combo-bio-recovery",
+  "version": "0.1.0",
+  "name": "ComboBioRecovery",
+  "title": "Combo BIO RECOVERY — Reparación Tisular y Anti-Inflamación",
+  "status": "draft",
+  "experimental": true,
+  "date": "2026-05-19",
+  "publisher": "BIOWELLNESS Argentina",
+  "description": "Combo BIO RECOVERY: reparación post-competición, post-cirugía estética, manejo inflamación crónica. Secuencia: HBOT → Recovery Pro → Botas + Crioterapia. HBOT primero satura O2 y reduce edema; Recovery Pro entrena SNA con contraste térmico; botas finalizan drenaje linfático.",
+  "topic": [
+    {
+      "coding": [
+        { "system": "https://biowellness.ar/fhir/CodeSystem/bw-combo", "code": "bio-recovery", "display": "BIO RECOVERY" }
+      ]
+    }
+  ],
+  "library": ["https://biowellness.ar/fhir/Library/biowellness-decision-logic|0.3.0"],
+  "action": [
+    {
+      "id": "recovery-secuencia",
+      "title": "Secuencia Recovery",
+      "selectionBehavior": "all",
+      "action": [
+        {
+          "id": "recovery-1-hbot",
+          "title": "Fase 1: HBOT (60 min)",
+          "definitionCanonical": "https://biowellness.ar/fhir/ActivityDefinition/ad-hbot-sesion|0.1.0",
+          "condition": [
+            { "kind": "applicability", "expression": { "language": "text/fhirpath", "expression": "%library.pre-hbot-seguro" } }
+          ]
+        },
+        {
+          "id": "recovery-2-recovery-pro",
+          "title": "Fase 2: Recovery Pro circuito (sauna + cold plunge, ~45 min)",
+          "definitionCanonical": "https://biowellness.ar/fhir/ActivityDefinition/ad-recovery-pro-circuito|0.1.0",
+          "relatedAction": [
+            { "actionId": "recovery-1-hbot", "relationship": "after", "offsetDuration": { "value": 15, "unit": "min" } }
+          ],
+          "condition": [
+            { "kind": "applicability", "expression": { "language": "text/fhirpath", "expression": "%library.pre-contraste-seguro" } }
+          ]
+        },
+        {
+          "id": "recovery-3-botas",
+          "title": "Fase 3: Botas de compresión + crioterapia integrada (20 min)",
+          "definitionCanonical": "https://biowellness.ar/fhir/ActivityDefinition/ad-botas-compresion-crio|0.1.0",
+          "relatedAction": [
+            { "actionId": "recovery-2-recovery-pro", "relationship": "after", "offsetDuration": { "value": 5, "unit": "min" } }
+          ]
+        }
+      ]
+    }
+  ]
+}

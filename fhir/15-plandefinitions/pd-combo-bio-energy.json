@@ -1,0 +1,57 @@
+{
+  "resourceType": "PlanDefinition",
+  "id": "pd-combo-bio-energy",
+  "url": "https://biowellness.ar/fhir/PlanDefinition/pd-combo-bio-energy",
+  "version": "0.1.0",
+  "name": "ComboBioEnergy",
+  "title": "Combo BIO ENERGY — Alto Rendimiento Cognitivo y Mitocondrial",
+  "status": "draft",
+  "experimental": true,
+  "date": "2026-05-19",
+  "publisher": "BIOWELLNESS Argentina",
+  "description": "Combo BIO ENERGY: optimización mitocondrial via mitofagia + biogénesis. Secuencia: IHHT → Fotobiomodulación → Suero NAD+/Complejo B. Target: niebla mental, fatiga ejecutiva, deportistas VO2 max. Sin requerimiento de HBOT previo.",
+  "topic": [
+    {
+      "coding": [
+        { "system": "https://biowellness.ar/fhir/CodeSystem/bw-combo", "code": "bio-energy", "display": "BIO ENERGY" }
+      ]
+    }
+  ],
+  "library": ["https://biowellness.ar/fhir/Library/biowellness-decision-logic|0.3.0"],
+  "action": [
+    {
+      "id": "energy-secuencia",
+      "title": "Secuencia Energy",
+      "selectionBehavior": "all",
+      "action": [
+        {
+          "id": "energy-1-ihht",
+          "title": "Fase 1: IHHT (45 min)",
+          "definitionCanonical": "https://biowellness.ar/fhir/ActivityDefinition/ad-ihht-sesion|0.1.0",
+          "condition": [
+            { "kind": "applicability", "expression": { "language": "text/fhirpath", "expression": "%library.pre-ihht-seguro" } }
+          ]
+        },
+        {
+          "id": "energy-2-fotobiomod",
+          "title": "Fase 2: Fotobiomodulación red light (20 min)",
+          "definitionCanonical": "https://biowellness.ar/fhir/ActivityDefinition/ad-red-light-sesion|0.1.0",
+          "relatedAction": [
+            { "actionId": "energy-1-ihht", "relationship": "after", "offsetDuration": { "value": 10, "unit": "min" } }
+          ]
+        },
+        {
+          "id": "energy-3-iv",
+          "title": "Fase 3: Suero IV NAD+ o Complejo B",
+          "definitionCanonical": "https://biowellness.ar/fhir/ActivityDefinition/ad-suero-iv-nad-plus|0.1.0",
+          "relatedAction": [
+            { "actionId": "energy-2-fotobiomod", "relationship": "after", "offsetDuration": { "value": 10, "unit": "min" } }
+          ],
+          "condition": [
+            { "kind": "applicability", "expression": { "language": "text/fhirpath", "expression": "%library.consent-nivel-2-active-for-activity and %library.pre-suero-iv-seguro" } }
+          ]
+        }
+      ]
+    }
+  ]
+}

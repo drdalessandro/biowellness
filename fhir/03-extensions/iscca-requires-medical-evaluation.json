@@ -1,0 +1,71 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "iscca-requires-medical-evaluation",
+  "url": "https://biowellness.ar/fhir/StructureDefinition/iscca-requires-medical-evaluation",
+  "version": "0.1.0",
+  "name": "IsccaRequiresMedicalEvaluation",
+  "title": "Requires Medical Evaluation (Director Médico or Backup)",
+  "status": "draft",
+  "experimental": true,
+  "date": "2026-05-19",
+  "publisher": "BIOWELLNESS Argentina",
+  "description": "Indica que una ActivityDefinition requiere evaluación médica previa antes de instanciación, conforme al Consentimiento Informado (Versión 1.0 Abril 2026, Servicios punto 5 - terapias biológicas). Evaluación válida por defecto 30 días. Backup flexible per ADR-031: director médico o cualquier médico del programa.",
+  "fhirVersion": "4.0.1",
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "ActivityDefinition"
+    },
+    {
+      "type": "element",
+      "expression": "PlanDefinition.action"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "Requires director-medico-grade medical evaluation",
+        "min": 0,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:requires",
+        "path": "Extension.extension",
+        "sliceName": "requires",
+        "short": "Whether evaluation is required (boolean)",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:requires.value[x]",
+        "path": "Extension.extension.value[x]",
+        "type": [{ "code": "boolean" }]
+      },
+      {
+        "id": "Extension.extension:validity",
+        "path": "Extension.extension",
+        "sliceName": "validity",
+        "short": "Validity duration of the evaluation (default 30 days)",
+        "min": 0,
+        "max": "1"
+      },
+      {
+        "id": "Extension.extension:validity.value[x]",
+        "path": "Extension.extension.value[x]",
+        "type": [{ "code": "Duration" }]
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "https://biowellness.ar/fhir/StructureDefinition/iscca-requires-medical-evaluation"
+      }
+    ]
+  }
+}

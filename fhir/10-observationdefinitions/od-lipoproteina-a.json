@@ -1,0 +1,26 @@
+{
+  "resourceType": "ObservationDefinition",
+  "id": "obs-def-lipoproteina-a",
+  "url": "https://biowellness.ar/fhir/ObservationDefinition/obs-def-lipoproteina-a",
+  "version": "0.1.0",
+  "code": {
+    "coding": [{ "system": "http://loinc.org", "code": "10835-7", "display": "Lipoprotein a [Mass/volume] in Serum or Plasma" }]
+  },
+  "preferredReportName": "Lipoproteína(a)",
+  "quantitativeDetails": {
+    "unit": { "coding": [{ "system": "http://unitsofmeasure.org", "code": "mg/dL" }] }
+  },
+  "qualifiedInterval": [
+    {
+      "category": "reference",
+      "range": { "high": { "value": 30, "unit": "mg/dL" } },
+      "context": { "coding": [{ "code": "lab-reference" }] }
+    },
+    {
+      "category": "reference",
+      "range": { "low": { "value": 50, "unit": "mg/dL" } },
+      "context": { "coding": [{ "code": "riesgo-genetico-cv-elevado" }] },
+      "condition": "Lp(a) > 50 mg/dL = riesgo CV genético elevado. NO modificable con lifestyle; requiere optimizar todos los otros factores."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "resourceType": "ActivityDefinition",
+  "id": "ad-red-light-sesion",
+  "url": "https://biowellness.ar/fhir/ActivityDefinition/ad-red-light-sesion",
+  "version": "0.1.0",
+  "name": "RedLightSesion",
+  "title": "Fotobiomodulación Red Light + NIR — Sesión",
+  "status": "draft",
+  "publisher": "BIOWELLNESS Argentina",
+  "description": "Sesión de fotobiomodulación con red light (660 nm) + near infrared (850 nm). 15-20 min. Sala dedicada loc-red-light (entrepiso) — independiente del circuito Recovery Pro. Activa citocromo c oxidasa → ATP + óxido nítrico.",
+  "kind": "ServiceRequest",
+  "code": {
+    "coding": [{ "system": "https://biowellness.ar/fhir/CodeSystem/iscca-tipo-intervencion", "code": "fotobiomodulacion" }]
+  },
+  "extension": [
+    { "url": "https://biowellness.ar/fhir/StructureDefinition/iscca-nivel-evidencia", "valueCode": "nivel-1-estandar" }
+  ]
+}

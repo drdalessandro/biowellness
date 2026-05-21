@@ -1,0 +1,71 @@
+{
+  "resourceType": "ActivityDefinition",
+  "id": "ad-recovery-pro-circuito",
+  "url": "https://biowellness.ar/fhir/ActivityDefinition/ad-recovery-pro-circuito",
+  "version": "0.1.0",
+  "name": "RecoveryProCircuito",
+  "title": "Recovery Pro — Circuito Térmico-Lumínico",
+  "status": "draft",
+  "experimental": true,
+  "date": "2026-05-19",
+  "publisher": "BIOWELLNESS Argentina",
+  "description": "Sesión de Recovery Pro completo. Secuencia: sauna finlandesa (15-20 min @ 80-90°C) → cold plunge (2-3 min @ 3-5°C) → fotobiomodulación red light (15-20 min). Activa HSPs, libera norepinefrina (+500%), estimula citocromo c oxidasa. Duración total ~45 min.",
+  "kind": "ServiceRequest",
+  "code": {
+    "coding": [
+      {
+        "system": "https://biowellness.ar/fhir/CodeSystem/iscca-tipo-intervencion",
+        "code": "circuito-termico-luminico",
+        "display": "Recovery Pro Circuito"
+      }
+    ]
+  },
+  "topic": [
+    {
+      "coding": [
+        {
+          "system": "https://biowellness.ar/fhir/CodeSystem/iscca-capa",
+          "code": "capa-1-bioenergetica",
+          "display": "Capa 1 — Bioenergética Mitocondrial"
+        }
+      ]
+    }
+  ],
+  "extension": [
+    {
+      "url": "https://biowellness.ar/fhir/StructureDefinition/iscca-nivel-evidencia",
+      "valueCode": "nivel-1-estandar"
+    },
+    {
+      "url": "https://biowellness.ar/fhir/StructureDefinition/iscca-capacidad-operativa-diaria",
+      "extension": [
+        { "url": "maxDailySessions", "valueInteger": 8 },
+        { "url": "concurrentSessions", "valueInteger": 2 },
+        { "url": "bottleneck", "valueString": "2 gabinetes Recovery Pro" }
+      ]
+    },
+    {
+      "url": "https://biowellness.ar/fhir/StructureDefinition/iscca-pre-procedure-gate",
+      "valueString": "%library.pre-contraste-seguro"
+    }
+  ],
+  "timingTiming": {
+    "repeat": {
+      "duration": 45,
+      "durationUnit": "min"
+    }
+  },
+  "location": {
+    "reference": "Location/loc-recovery-pro-1"
+  },
+  "relatedArtifact": [
+    {
+      "type": "citation",
+      "display": "Hamblin MR. Mechanisms and applications of the anti-inflammatory effects of photobiomodulation. AIMS Biophys 2017;4(3):337-361."
+    },
+    {
+      "type": "citation",
+      "display": "Brunt VE et al. Passive heat therapy improves endothelial function, arterial stiffness and blood pressure in sedentary humans. J Physiol 2016;594(18):5329-42."
+    }
+  ]
+}

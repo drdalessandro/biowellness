@@ -1,0 +1,25 @@
+{
+  "resourceType": "ObservationDefinition",
+  "id": "obs-def-homocisteina",
+  "url": "https://biowellness.ar/fhir/ObservationDefinition/obs-def-homocisteina",
+  "version": "0.1.0",
+  "code": {
+    "coding": [{ "system": "http://loinc.org", "code": "13965-9", "display": "Homocysteine [Moles/volume] in Serum or Plasma" }]
+  },
+  "preferredReportName": "Homocisteína",
+  "quantitativeDetails": {
+    "unit": { "coding": [{ "code": "umol/L" }] }
+  },
+  "qualifiedInterval": [
+    {
+      "category": "reference",
+      "range": { "high": { "value": 15 } },
+      "context": { "coding": [{ "code": "lab-reference" }] }
+    },
+    {
+      "category": "reference",
+      "range": { "high": { "value": 7 } },
+      "context": { "coding": [{ "code": "optimo-biowellness" }] }
+    }
+  ]
+}
