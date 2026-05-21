@@ -1,0 +1,19 @@
+{
+  "name": "biowellness",
+  "version": "0.2.0",
+  "description": "BIOWELLNESS FHIR-as-Code backend configuration for Medplum",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "validate": "tsx scripts/validate.ts",
+    "deploy": "tsx scripts/deploy.ts",
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "@medplum/core": "^4.0.0",
+    "@medplum/fhirtypes": "^4.0.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.4.0",
+    "vitest": "^1.4.0"
+  }
+}
