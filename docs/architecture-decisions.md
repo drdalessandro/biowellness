@@ -331,3 +331,136 @@ Los **médicos del programa** (Dra. Stephanie Dos Santos o Dr. Alejandro D'Aless
 8. Declaración Final y Consentimiento (firma única cubre todas las secciones)
 
 **El cliente firma una sola vez en sección 8.** Compatible con uso en papel.
+
+
+# Architecture Decision Records — Delta RC3
+
+> ADRs 033-036 — sesión RC3 (mayo 2026). Decisiones de deployment architecture:
+> separación admin/clinical, Medplum Projects, portal paciente diferido.
+
+---
+
+## ADR-033: Separación de planes admin / clinical / patient
+
+**Fecha:** 2026-05-20 · **Status:** Accepted
+
+**Decisión:** El sistema se compone de **3 frontends distintos** sobre **1 backend Medplum único**:
+
+| Frontend | Dominio | Origen del código | Audience | Sprint |
+|---|---|---|---|---|
+| Medplum Admin (built-in) | `app.medplum.com.ar` | Open source `medplum/packages/app` | Sysadmins, integradores, devops | MVP día 1 |
+| Chart clínico BIOWELLNESS | `app.biowellness.ar` | Fork de `medplum/medplum-chart-demo` | Médicos, hbot-operators, nutric, osteo, secret | MVP día 1 |
+| Portal paciente | `portal.biowellness.ar` | Fork de `medplum/foomedical` | Pacientes finales | **V2 jul-ago 2026** |
+
+**Justificación:**
+- Medplum App ya provee admin tooling completo (AccessPolicies, Bots, CodeSystems, ValueSets, ClientApplications, Subscriptions, Bot debugger, AuditEvents) — duplicar esto en app.biowellness.ar es 8-10 pantallas de desarrollo redundante
+- Branding consistency: cada audience ve UI con identidad apropiada
+- Ciclos de deploy independientes: admin se actualiza al ritmo de upstream Medplum, chart clínico se actualiza al ritmo de BIOWELLNESS, portal al ritmo de necesidades pacientes
+- Reduce alcance del sprint MVP en ~2 días de desarrollo frontend
+
+**Conflictos resueltos:**
+- ClientApplications: 1 por frontend (3 totales en Project biowellness)
+- CORS allowed origins en el server: `app.biowellness.ar`, `app.medplum.com.ar`, `portal.biowellness.ar` (V2)
+- OAuth redirect URIs: 1 set por ClientApplication
+- SSO Google para staff aplica a app.medplum.com.ar y app.biowellness.ar; portal usa auth de paciente (Google + WhatsApp magic link en V2)
+
+---
+
+## ADR-034: Medplum Projects multi-tenancy strategy
+
+**Fecha:** 2026-05-20 · **Status:** Accepted
+
+**Decisión:** `api.medplum.com.ar` adopta tenancy multi-Project desde día 1, con Project `biowellness` para BIOWELLNESS San Isidro.
+
+**Project hierarchy planificada:**
+
+```
+api.medplum.com.ar/
+├── Project "biowellness"          ← MVP 29 jun (este sprint)
+│   ├── Patients, Practitioners, CarePlans, etc.
+│   ├── 8 AccessPolicies + 4 Bots + 5 PlanDefinitions combos + ...
+│   └── ClientApplications: chart-clinico, admin-app
+│
+├── Project "biowellness-staging"  ← Sem 1 para testing
+│   └── Espejo del prod para validación pre-deploy
+│
+├── Project "epa-bienestar"        ← Futuro (H2 2026 si decisión cosolidación)
+└── Project "marie-curie-cardio-onco"  ← Futuro
+```
+
+**Justificación:**
+- Medplum Projects son nativos: 0 infra adicional, configuración via Medplum App
+- Aísla data entre productos: un Bot del proyecto BIOWELLNESS NO puede leer Patient de epa-bienestar (a menos que se autorice explícitamente)
+- AccessPolicies son por-Project: misma AccessPolicy `ap-medico` puede tener instancias en cada Project con permisos distintos
+- Permite consolidación futura de productos en mismo backend sin re-arquitectura
+- ClientApplications son por-Project: cada front se autentica solo contra su Project
+
+**Implicancias técnicas:**
+- Todos los recursos del Bundle FHIR-as-Code se deployan al Project biowellness, no al SuperAdmin Project
+- `scripts/deploy.ts` debe especificar `MEDPLUM_PROJECT_ID` además de `MEDPLUM_BASE_URI`
+- Bots heredan permission scope del Project que los aloja
+
+**Cross-project data import (EPA bridge):**
+- Mecanismo: API externa hacia `api.epa-bienestar.com.ar` (NO cross-project nativo de Medplum)
+- Razón: EPA está en servidor Medplum separado, no en mismo backend
+- Trigger: opt-in `consent-crossorg-granted` del Master Consent sección 7-bis.3
+- Implementación: Bot `epa-bridge-importer` que hace requests autenticadas contra EPA API y crea Observations en project biowellness
+- Diferido a H2 2026 (no MVP)
+
+---
+
+## ADR-035: Portal paciente diferido a V2 (jul-ago 2026)
+
+**Fecha:** 2026-05-20 · **Status:** Accepted
+
+**Decisión:** Portal paciente `portal.biowellness.ar` (basado en fork de `medplum/foomedical`) se difiere a V2 (julio-agosto 2026). NO forma parte del MVP del 29 jun.
+
+**Para MVP, la interacción con pacientes es:**
+- **WhatsApp** (vía Kapso flow existente, refactorizado para BIOWELLNESS) para notificaciones de turno, resultados disponibles, completar cuestionarios pre-consulta
+- **Email** transaccional (Postmark/SendGrid) para confirmaciones, facturas, link a PDF de protocolo
+- **SMS** únicamente para recordatorios críticos
+- **Consulta presencial** para visualizar avance, radar BioTerrain, decisiones clínicas
+
+**Justificación de diferimiento:**
+- ABC1 premium prefiere atención humana directa (no auto-servicio digital exclusivo) en early adoption
+- Foomedical fork requiere 2-3 semanas de customización + branding + integration testing
+- Esos 2-3 sem son significativos en sprint de 6 semanas total
+- WhatsApp + email cubren el 80% de los touch points pacientes en fase inicial
+- Permite validar workflow real con primeros 20-40 pacientes antes de invertir en self-service portal
+
+**Scope V2 (jul-ago 2026):**
+- Fork foomedical custom branded BIOWELLNESS
+- Vista del journey con fases gateadas + progress
+- Display del CarePlan activo con próximos appointments
+- Radar BioTerrain (Recharts/hGraph) con últimos lab values
+- Cuestionarios self-completable pre-consulta
+- Wearables sync (Oura, Apple Health) via OAuth
+- Magic link auth + Google SSO
+
+---
+
+## ADR-036: URLs canónicas y deprecación api.biowellness.ar
+
+**Fecha:** 2026-05-20 · **Status:** Accepted
+
+**Decisión:** URLs canónicas del producto:
+
+| Componente | URL canónica | Status |
+|---|---|---|
+| Medplum FHIR backend | `api.medplum.com.ar` | Canónica |
+| Medplum Admin App | `app.medplum.com.ar` | Canónica |
+| Chart clínico BIOWELLNESS | `app.biowellness.ar` | Canónica |
+| Portal paciente (V2) | `portal.biowellness.ar` | Reservado para V2 |
+| Site público | `www.biowellness.ar` | Canónica (Webflow/Framer/Vite estático) |
+| ~~Backend con dominio biowellness~~ | ~~api.biowellness.ar~~ | **Deprecado** |
+
+**Justificación de deprecación:**
+- `api.medplum.com.ar` deja claro que es infraestructura técnica Medplum, no producto-específico
+- Permite multi-tenancy futuro sin renaming dominios
+- Reduce confusión entre identidad de producto (biowellness.ar) e infraestructura (medplum.com.ar)
+- Alinea con patterns de productos SaaS healthtech (Vital, Particle, Health Samurai, etc.)
+
+**Migration:**
+- `api.biowellness.ar` puede quedar como CNAME a `api.medplum.com.ar` durante 6 meses
+- Toda documentación nueva, código nuevo, env vars: usar `api.medplum.com.ar`
+- Aviso en `README.md` indicando la deprecación
