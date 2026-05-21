@@ -1,0 +1,10 @@
+{
+  "resourceType": "Bot",
+  "id": "lab-ingestion",
+  "identifier": [{ "system": "https://biowellness.ar/fhir/identifier/bot", "value": "BW-BOT-003" }],
+  "name": "lab-ingestion",
+  "description": "Ingesta resultados de lab via QuestionnaireResponse, PDF OCR, o Bundle wearable. Genera Observations linked a ObservationDefinitions con qualifiedInterval evaluation.",
+  "runtimeVersion": "awslambda",
+  "version": "0.1.0",
+  "auditEnabled": true
+}
