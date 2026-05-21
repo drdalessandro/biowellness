@@ -1,0 +1,48 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "iscca-perfil-clinico",
+  "url": "https://biowellness.ar/fhir/CodeSystem/iscca-perfil-clinico",
+  "version": "0.2.0",
+  "name": "IsccaPerfilClinico",
+  "title": "BIOWELLNESS Clinical Profile Codes",
+  "status": "draft",
+  "experimental": true,
+  "date": "2026-05-19",
+  "publisher": "BIOWELLNESS Argentina",
+  "description": "Códigos de perfiles clínicos dominantes. Los 6 perfiles se MANTIENEN como assignment clínico (qué tipo de paciente sos), independiente de los combos del CodeSystem bw-combo (qué intervenciones prescribe el médico). Matriz perfil × combo, no reemplazo (ADR-026). Naming 'iscca-*' es referencia al framework ISSCA bibliográfico (no operacional, Lapeire no en BIOWELLNESS — ADR-025).",
+  "content": "complete",
+  "caseSensitive": true,
+  "count": 6,
+  "concept": [
+    {
+      "code": "menopausia",
+      "display": "Menopausia / Perimenopausia",
+      "definition": "Mujer 38-58 con cluster de síntomas vasomotores, alteración del sueño, cambios menstruales, mood/cognitivos, cambio composición corporal. Combos recomendados: BIO BALANCE (primario), BIO IV BOOST, BIO RECOVERY."
+    },
+    {
+      "code": "longevidad-biohacking",
+      "display": "Longevidad / Biohacking",
+      "definition": "Paciente asintomático con objetivos de optimización y healthspan. Edad típica 35-55. Combos recomendados: BIO ELITE (primario), BIO ENERGY."
+    },
+    {
+      "code": "estetica-regenerativa",
+      "display": "Estética Regenerativa",
+      "definition": "Foco en piel/conectivo, pre/post procedimientos estéticos, anti-aging. Combos recomendados: BIO IV BOOST + terapias biológicas, BIO RECOVERY."
+    },
+    {
+      "code": "deporte-running",
+      "display": "Deporte / Performance",
+      "definition": "Atletas amateurs/competitivos. Foco en performance, recuperación, prevención lesión. Combos recomendados: BIO ENERGY (primario), BIO RECOVERY."
+    },
+    {
+      "code": "cardio-metabolico",
+      "display": "Cardio-Metabólico",
+      "definition": "Factores de riesgo CV o síndrome metabólico, prevención secundaria intensiva. Bridge con EPA Bienestar IA si datos disponibles. Combos recomendados: BIO ENERGY (mitocondrial), BIO BALANCE (stress mgmt)."
+    },
+    {
+      "code": "generico",
+      "display": "Genérico (exploratorio)",
+      "definition": "Sin perfil dominante claro. Journey exploratorio. Combo default sugerido: BIO BALANCE."
+    }
+  ]
+}

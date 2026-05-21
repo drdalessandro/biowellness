@@ -1,0 +1,175 @@
+{
+  "resourceType": "PlanDefinition",
+  "id": "pd-combo-bio-elite",
+  "url": "https://biowellness.ar/fhir/PlanDefinition/pd-combo-bio-elite",
+  "identifier": [
+    {
+      "system": "https://biowellness.ar/fhir/identifier/plandefinition",
+      "value": "BW-PD-COMBO-ELITE-001"
+    }
+  ],
+  "version": "0.1.0",
+  "name": "ComboBioElite",
+  "title": "Combo BIO ELITE — Optimización Total",
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/plan-definition-type",
+        "code": "clinical-protocol"
+      }
+    ]
+  },
+  "status": "draft",
+  "experimental": true,
+  "date": "2026-05-19",
+  "publisher": "BIOWELLNESS Argentina",
+  "description": "Combo BIO ELITE: experiencia de optimización total ~3 horas. Cascada científicamente ordenada: HBOT (oxigenación supra-fisiológica) → IHHT (paradox hiperóxico-hipóxico que multiplica HIF-1α) → Recovery Pro (consolidación) → Terapias biológicas (ventana anabólica post-hiperbárica de stem cells CD34+ x8, Thom et al. 2005-2006). El ORDEN es no negociable bioquímicamente. Aplicable a perfiles longevidad-biohacking, estética-regenerativa, deporte-running de alto nivel.",
+  "purpose": "Maximizar cada eje de optimización biológica en una sola visita: oxigenación → estímulo adaptativo → consolidación y limpieza → regeneración dirigida.",
+  "useContext": [
+    {
+      "code": {
+        "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
+        "code": "user"
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "https://biowellness.ar/fhir/CodeSystem/bw-combo",
+            "code": "bio-elite"
+          }
+        ]
+      }
+    }
+  ],
+  "topic": [
+    {
+      "coding": [
+        {
+          "system": "https://biowellness.ar/fhir/CodeSystem/bw-combo",
+          "code": "bio-elite",
+          "display": "BIO ELITE"
+        }
+      ]
+    }
+  ],
+  "library": [
+    "https://biowellness.ar/fhir/Library/biowellness-decision-logic|0.3.0"
+  ],
+  "extension": [
+    {
+      "url": "https://biowellness.ar/fhir/StructureDefinition/iscca-requires-medical-evaluation",
+      "extension": [
+        { "url": "requires", "valueBoolean": true },
+        { "url": "validity", "valueDuration": { "value": 30, "unit": "d", "system": "http://unitsofmeasure.org", "code": "d" } }
+      ]
+    }
+  ],
+  "action": [
+    {
+      "id": "elite-secuencia",
+      "title": "Secuencia Elite",
+      "description": "Cascada de 4 fases en sesión única. Selection behavior: all (todas requeridas, ORDEN fijo).",
+      "selectionBehavior": "all",
+      "action": [
+        {
+          "id": "elite-1-hbot",
+          "title": "Fase 1: HBOT (60 min)",
+          "description": "Oxigenoterapia hiperbárica monoplaza o multiplaza, 60 min a 1.5-2.0 ATA. Establece oxigenación supra-fisiológica + vasodilatación post-sesión.",
+          "definitionCanonical": "https://biowellness.ar/fhir/ActivityDefinition/ad-hbot-sesion|0.1.0",
+          "condition": [
+            {
+              "kind": "applicability",
+              "expression": {
+                "language": "text/fhirpath",
+                "expression": "%library.pre-hbot-seguro"
+              }
+            }
+          ]
+        },
+        {
+          "id": "elite-2-ihht",
+          "title": "Fase 2: IHHT (45 min)",
+          "description": "Entrenamiento hipoxia-hiperoxia intermitente. ORDEN CRÍTICO: después de HBOT. Aprovecha el paradox: caída relativa de O2 desde nivel supra-fisiológico amplifica señal HIF-1α x10. NO INVERTIR el orden.",
+          "definitionCanonical": "https://biowellness.ar/fhir/ActivityDefinition/ad-ihht-sesion|0.1.0",
+          "relatedAction": [
+            {
+              "actionId": "elite-1-hbot",
+              "relationship": "after",
+              "offsetDuration": { "value": 15, "unit": "min", "system": "http://unitsofmeasure.org", "code": "min" }
+            }
+          ],
+          "condition": [
+            {
+              "kind": "applicability",
+              "expression": {
+                "language": "text/fhirpath",
+                "expression": "%library.pre-ihht-seguro"
+              }
+            }
+          ]
+        },
+        {
+          "id": "elite-3-recovery",
+          "title": "Fase 3: Recovery Pro (60 min)",
+          "description": "Circuito sauna finlandesa (80°C) → cold plunge (4°C) → fotobiomodulación red light. Consolida reparación proteica (HSPs) + entrena SNA + activa citocromo c oxidasa.",
+          "definitionCanonical": "https://biowellness.ar/fhir/ActivityDefinition/ad-recovery-pro-circuito|0.1.0",
+          "relatedAction": [
+            {
+              "actionId": "elite-2-ihht",
+              "relationship": "after",
+              "offsetDuration": { "value": 10, "unit": "min", "system": "http://unitsofmeasure.org", "code": "min" }
+            }
+          ]
+        },
+        {
+          "id": "elite-4-biologicas",
+          "title": "Fase 4: Terapias biológicas (péptidos / exosomas / suero NAD+)",
+          "description": "Ventana anabólica post-hiperbárica con CD34+ stem cells circulando x8 (Thom 2005). Aplicación de péptidos, exosomas o suero IV regenerativo según prescripción del Director Médico.",
+          "definitionCanonical": "https://biowellness.ar/fhir/ActivityDefinition/ad-terapia-biologica-personalizada|0.1.0",
+          "extension": [
+            {
+              "url": "https://biowellness.ar/fhir/StructureDefinition/iscca-nivel-evidencia",
+              "valueCode": "nivel-3-experimental"
+            }
+          ],
+          "relatedAction": [
+            {
+              "actionId": "elite-3-recovery",
+              "relationship": "after",
+              "offsetDuration": { "value": 15, "unit": "min", "system": "http://unitsofmeasure.org", "code": "min" }
+            }
+          ],
+          "condition": [
+            {
+              "kind": "applicability",
+              "expression": {
+                "language": "text/fhirpath",
+                "expression": "%library.consent-nivel-3-active-for-activity and %library.evaluacion-medica-vigente"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedArtifact": [
+    {
+      "type": "citation",
+      "display": "Thom SR et al. Stem cell mobilization by hyperbaric oxygen. Am J Physiol Heart Circ Physiol 2006;290(4):H1378-86."
+    },
+    {
+      "type": "citation",
+      "display": "Documento maestro BIOWELLNESS: Arquitectura Bioquímica y Protocolos de Optimización Biológica (Abril 2026)."
+    },
+    {
+      "type": "documentation",
+      "display": "ADR-026: Modelo dual de entrada — combos como PlanDefinitions complementarias al journey",
+      "url": "https://github.com/drdalessandro/biowellness/blob/main/docs/architecture-decisions.md#adr-026"
+    },
+    {
+      "type": "documentation",
+      "display": "ADR-031: Director Médico backup flexible (Stephanie o Alejandro)",
+      "url": "https://github.com/drdalessandro/biowellness/blob/main/docs/architecture-decisions.md#adr-031"
+    }
+  ]
+}

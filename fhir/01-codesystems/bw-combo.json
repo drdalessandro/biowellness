@@ -1,0 +1,43 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "bw-combo",
+  "url": "https://biowellness.ar/fhir/CodeSystem/bw-combo",
+  "version": "0.1.0",
+  "name": "BwCombo",
+  "title": "BIOWELLNESS Combo Codes",
+  "status": "draft",
+  "experimental": true,
+  "date": "2026-05-19",
+  "publisher": "BIOWELLNESS Argentina",
+  "description": "Códigos de los 5 combos canónicos de BIOWELLNESS San Isidro. Los combos son secuencias ordenadas de intervenciones diseñadas científicamente para maximizar sinergia (HBOT antes de IHHT, terapias biológicas en ventana post-hiperbárica, etc). Mapeo recomendado perfil clínico → combo en docs/perfil-combo-matrix.md.",
+  "content": "complete",
+  "caseSensitive": true,
+  "count": 5,
+  "concept": [
+    {
+      "code": "bio-energy",
+      "display": "BIO ENERGY",
+      "definition": "Protocolo de alto rendimiento cognitivo y mitocondrial. Secuencia: IHHT (45 min) → Fotobiomodulación (20 min) → Suero IV NAD+ o Complejo B. Target: pacientes con niebla mental, fatiga ejecutiva, deportistas buscando mejorar VO2 max."
+    },
+    {
+      "code": "bio-recovery",
+      "display": "BIO RECOVERY",
+      "definition": "Protocolo de reparación tisular y antiinflamación. Secuencia: HBOT (60 min) → Recovery Pro (sauna + cold plunge) → Botas de compresión + crioterapia. Target: recuperación post-competición, post-cirugía estética, inflamación crónica."
+    },
+    {
+      "code": "bio-balance",
+      "display": "BIO BALANCE",
+      "definition": "Protocolo de longevidad y gestión del estrés. Secuencia: Masaje descontracturante → Recovery Pro (enfocado en relajación) → Yoga / Mindfulness. Target: estrés crónico, alteraciones del sueño, desbalance neuroendocrino."
+    },
+    {
+      "code": "bio-iv-boost",
+      "display": "BIO IV BOOST",
+      "definition": "Protocolo de nutrición celular máxima. Secuencia: HBOT (60 min) → IV Therapy personalizada → Barra saludable. Target: optimización de micronutrientes en ventana anabólica post-hiperbárica (vasodilatación + permeabilidad capilar aumentada → biodisponibilidad ~40% mayor)."
+    },
+    {
+      "code": "bio-elite",
+      "display": "BIO ELITE",
+      "definition": "Experiencia de optimización total. Secuencia (~3hs): HBOT (60 min) → IHHT (45 min) → Recovery Pro (60 min) → Terapias biológicas (péptidos o exosomas). Target: máxima inversión en capital biológico, prevención de enfermedades de la vejez. Es el 'Gold Standard' del centro."
+    }
+  ]
+}

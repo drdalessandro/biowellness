@@ -1,0 +1,18 @@
+{
+  "resourceType": "ActivityDefinition",
+  "id": "ad-botas-compresion-crio",
+  "url": "https://biowellness.ar/fhir/ActivityDefinition/ad-botas-compresion-crio",
+  "version": "0.1.0",
+  "name": "BotasCompresionCrio",
+  "title": "Botas de Compresión Secuencial + Crioterapia Integrada",
+  "status": "draft",
+  "publisher": "BIOWELLNESS Argentina",
+  "description": "Sistema neumático de compresión secuencial con crioterapia. Drenaje linfático + reducción inflamación post-ejercicio. 20-30 min. Ubicación entrepiso (2 camillas).",
+  "kind": "ServiceRequest",
+  "code": {
+    "coding": [{ "system": "https://biowellness.ar/fhir/CodeSystem/iscca-tipo-intervencion", "code": "compresion-neumatica-crio" }]
+  },
+  "extension": [
+    { "url": "https://biowellness.ar/fhir/StructureDefinition/iscca-nivel-evidencia", "valueCode": "nivel-1-estandar" }
+  ]
+}

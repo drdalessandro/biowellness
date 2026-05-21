@@ -8,18 +8,18 @@
       "value": "BW-LIB-001"
     }
   ],
-  "version": "0.2.0",
+  "version": "0.3.0",
   "name": "BiowellnessDecisionLogic",
-  "title": "BioWellness Clinical Decision Logic",
+  "title": "BIOWELLNESS Clinical Decision Logic",
   "status": "draft",
   "experimental": true,
-  "date": "2026-05-18",
-  "publisher": "BioWellness Argentina",
+  "date": "2026-05-19",
+  "publisher": "BIOWELLNESS Argentina",
   "contact": [
     { "telecom": [{ "system": "email", "value": "fhir@biowellness.ar" }] }
   ],
-  "description": "Polyglot library: FHIRPath expressions evaluables nativamente para gates declarativos + TypeScript scoring functions referenciados para fenotipado Capa 1. Versión 0.2.0 introduce todas las expressions concretas (E8). Antes del go-live debe calibrarse con equipo médico (ADR-020 — superseded por ADR-030 en RC2).",
-  "purpose": "Centralizar lógica clínica para que sea versionable, testeable y auditable independientemente de los PlanDefinitions y Bots que la consumen.",
+  "description": "Library polyglot v0.3.0. CAMBIOS vs 0.2.0: (1) Thresholds clínicos más estrictos alineados con estándar premium ABC1 — hs-CRP <0.5, HOMA-IR <1.5, glucosa <85, HbA1c <5.2%. (2) Nuevos gates de seguridad pre-procedimiento: pre-ihht-seguro, pre-contraste-seguro. (3) Nueva expression evaluacion-medica-vigente para terapias biológicas (ADR-031). (4) Helpers nuevos para biomarkers HbA1c, Lp(a), homocisteína, IGF-1, DHEA-S. (5) Calibración pendiente por equipo médico (Conrado + Stephanie + Alejandro) sem 1-3, no por Lapeire (ADR-030).",
+  "purpose": "Centralizar lógica clínica para gates declarativos + scoring de fenotipo, versionable y testeable independientemente de PlanDefinitions y Bots.",
   "jurisdiction": [
     { "coding": [{ "system": "urn:iso:std:iso:3166", "code": "AR" }] }
   ],
@@ -39,28 +39,64 @@
       "data": "JWNvbnRleHQub2JzZXJ2YXRpb24ud2hlcmUoY29kZS5jb2RpbmcuZXhpc3RzKHN5c3RlbSA9ICdodHRwOi8vbG9pbmMub3JnJyBhbmQgY29kZSA9ICczMDUyMi03JykpLndoZXJlKGVmZmVjdGl2ZURhdGVUaW1lID4gdG9kYXkoKSAtIDI4IGRheXMpLndoZXJlKHN0YXR1cyA9ICdmaW5hbCcpLnNvcnQoZWZmZWN0aXZlRGF0ZVRpbWUgZGVzY2VuZGluZykuZmlyc3QoKS52YWx1ZVF1YW50aXR5LnZhbHVl"
     },
     {
-      "id": "expr-psqi-recent",
+      "id": "expr-hba1c-recent",
       "contentType": "text/fhirpath",
-      "title": "psqi-recent",
-      "data": "JWNvbnRleHQub2JzZXJ2YXRpb24ud2hlcmUoY29kZS5jb2RpbmcuZXhpc3RzKHN5c3RlbSA9ICdodHRwOi8vbG9pbmMub3JnJyBhbmQgY29kZSA9ICc3MjEzMy0yJykpLndoZXJlKGVmZmVjdGl2ZURhdGVUaW1lID4gdG9kYXkoKSAtIDE0IGRheXMpLnNvcnQoZWZmZWN0aXZlRGF0ZVRpbWUgZGVzY2VuZGluZykuZmlyc3QoKS52YWx1ZVF1YW50aXR5LnZhbHVl"
+      "title": "hba1c-recent",
+      "data": "PLACEHOLDER-BASE64-hba1c"
     },
     {
-      "id": "expr-homa-ir-recent",
+      "id": "expr-lpa-recent",
       "contentType": "text/fhirpath",
-      "title": "homa-ir-recent",
-      "data": "JWNvbnRleHQub2JzZXJ2YXRpb24ud2hlcmUoY29kZS5jb2RpbmcuZXhpc3RzKHN5c3RlbSA9ICdodHRwOi8vbG9pbmMub3JnJyBhbmQgY29kZSA9ICc4ODExMC01JykpLndoZXJlKGVmZmVjdGl2ZURhdGVUaW1lID4gdG9kYXkoKSAtIDI4IGRheXMpLnNvcnQoZWZmZWN0aXZlRGF0ZVRpbWUgZGVzY2VuZGluZykuZmlyc3QoKS52YWx1ZVF1YW50aXR5LnZhbHVl"
+      "title": "lpa-recent",
+      "data": "PLACEHOLDER-BASE64-lpa"
     },
     {
-      "id": "expr-gate-preparatoria-cumplido",
+      "id": "expr-igf1-recent",
       "contentType": "text/fhirpath",
-      "title": "gate-preparatoria-cumplido",
-      "data": "JWxpYnJhcnkucGNyLXVzLXJlY2VudC5leGlzdHMoKSBhbmQgJWxpYnJhcnkucGNyLXVzLXJlY2VudCA8IDEuMCBhbmQgJWxpYnJhcnkucHNxaS1yZWNlbnQuZXhpc3RzKCkgYW5kICVsaWJyYXJ5LnBzcWktcmVjZW50IDw9IDU="
+      "title": "igf1-recent",
+      "data": "PLACEHOLDER-BASE64-igf1"
     },
     {
-      "id": "expr-gate-optimizacion-cumplido",
+      "id": "expr-dheas-recent",
       "contentType": "text/fhirpath",
-      "title": "gate-optimizacion-cumplido",
-      "data": "JWxpYnJhcnkuZ2F0ZS1wcmVwYXJhdG9yaWEtY3VtcGxpZG8gYW5kICVsaWJyYXJ5LmhvbWEtaXItcmVjZW50LmV4aXN0cygpIGFuZCAlbGlicmFyeS5ob21hLWlyLXJlY2VudCA8IDIuMA=="
+      "title": "dheas-recent",
+      "data": "PLACEHOLDER-BASE64-dheas"
+    },
+    {
+      "id": "expr-homocisteina-recent",
+      "contentType": "text/fhirpath",
+      "title": "homocisteina-recent",
+      "data": "PLACEHOLDER-BASE64-homocisteina"
+    },
+    {
+      "id": "expr-gate-preparatoria-cumplido-v3",
+      "contentType": "text/fhirpath",
+      "title": "gate-preparatoria-cumplido (v0.3.0: hs-CRP < 0.5)",
+      "data": "PLACEHOLDER-BASE64-gate-prep-v3"
+    },
+    {
+      "id": "expr-gate-optimizacion-cumplido-v3",
+      "contentType": "text/fhirpath",
+      "title": "gate-optimizacion-cumplido (v0.3.0: HOMA-IR < 1.5)",
+      "data": "PLACEHOLDER-BASE64-gate-opt-v3"
+    },
+    {
+      "id": "expr-pre-ihht-seguro",
+      "contentType": "text/fhirpath",
+      "title": "pre-ihht-seguro",
+      "data": "PLACEHOLDER-BASE64-pre-ihht"
+    },
+    {
+      "id": "expr-pre-contraste-seguro",
+      "contentType": "text/fhirpath",
+      "title": "pre-contraste-seguro",
+      "data": "PLACEHOLDER-BASE64-pre-contraste"
+    },
+    {
+      "id": "expr-evaluacion-medica-vigente",
+      "contentType": "text/fhirpath",
+      "title": "evaluacion-medica-vigente (ADR-031: 30 días validez)",
+      "data": "PLACEHOLDER-BASE64-eval-med-vigente"
     },
     {
       "id": "expr-consent-master-active",
@@ -77,19 +113,35 @@
   "relatedArtifact": [
     {
       "type": "citation",
-      "display": "ISSCA Framework — Medicina Regenerativa & Biohacking. Referencia bibliográfica."
+      "display": "Lapeire A. ISSCA Framework — Medicina Regenerativa & Biohacking. 2024. (Referencia bibliográfica, no operacional — Lapeire no pertenece a BIOWELLNESS, ADR-025)."
     },
     {
       "type": "citation",
-      "display": "Lloyd-Jones DM et al. Life's Essential 8: AHA Cardiovascular Health Score. Circulation 2022;146(5):e18-e43."
+      "display": "Documento maestro BIOWELLNESS: Arquitectura Bioquímica y Protocolos de Optimización Biológica. Abril 2026."
+    },
+    {
+      "type": "citation",
+      "display": "Cleveland Clinic Center for Functional Medicine — Reference ranges and optimal targets."
+    },
+    {
+      "type": "citation",
+      "display": "Lloyd-Jones DM et al. Life's Essential 8: AHA. Circulation 2022;146(5):e18-e43."
     },
     {
       "type": "documentation",
-      "display": "ADR-019: FHIRPath + TypeScript híbrido vs CQL puro"
+      "display": "ADR-029: Thresholds clínicos más estrictos (BIOWELLNESS premium)"
     },
     {
       "type": "documentation",
-      "display": "ADR-020: Calibración clínica del scoring (superseded en RC2 por ADR-030 — proceso continuo por equipo médico)"
+      "display": "ADR-030: Calibración clínica continua por equipo médico (supersedes ADR-020)"
+    },
+    {
+      "type": "documentation",
+      "display": "ADR-031: Director Médico backup flexible — evaluacion-medica-vigente"
+    },
+    {
+      "type": "depends-on",
+      "display": "Source expressions legibles en docs/decision-logic-expressions-v0.3.0.md"
     }
   ]
 }

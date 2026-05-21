@@ -1,0 +1,68 @@
+{
+  "resourceType": "ActivityDefinition",
+  "id": "ad-ihht-sesion",
+  "url": "https://biowellness.ar/fhir/ActivityDefinition/ad-ihht-sesion",
+  "version": "0.1.0",
+  "name": "IhhtSesion",
+  "title": "IHHT — Sesión de Entrenamiento Hipóxico-Hiperóxico Intermitente",
+  "status": "draft",
+  "experimental": true,
+  "date": "2026-05-19",
+  "publisher": "BIOWELLNESS Argentina",
+  "description": "Sesión de IHHT con equipo Longfian Jay 20H. Ciclos alternados de aire hipóxico (FiO2 ~10-12%, equivalente ~4000 msnm) y aire hiperóxico (FiO2 ~35-40%). Duración estándar 45 min. Estimula HIF-1α, mitofagia y biogénesis mitocondrial. Orden óptimo en combos: DESPUÉS de HBOT (paradox hiperóxico-hipóxico).",
+  "kind": "ServiceRequest",
+  "code": {
+    "coding": [
+      {
+        "system": "https://biowellness.ar/fhir/CodeSystem/iscca-tipo-intervencion",
+        "code": "ihht",
+        "display": "Intermittent Hypoxia-Hyperoxia Training"
+      }
+    ]
+  },
+  "topic": [
+    {
+      "coding": [
+        {
+          "system": "https://biowellness.ar/fhir/CodeSystem/iscca-capa",
+          "code": "capa-1-bioenergetica",
+          "display": "Capa 1 — Bioenergética Mitocondrial"
+        }
+      ]
+    }
+  ],
+  "extension": [
+    {
+      "url": "https://biowellness.ar/fhir/StructureDefinition/iscca-nivel-evidencia",
+      "valueCode": "nivel-1-estandar"
+    },
+    {
+      "url": "https://biowellness.ar/fhir/StructureDefinition/iscca-capacidad-operativa-diaria",
+      "extension": [
+        { "url": "maxDailySessions", "valueInteger": 12 },
+        { "url": "concurrentSessions", "valueInteger": 2 },
+        { "url": "bottleneck", "valueString": "2 equipos Longfian Jay 20H" }
+      ]
+    },
+    {
+      "url": "https://biowellness.ar/fhir/StructureDefinition/iscca-pre-procedure-gate",
+      "valueString": "%library.pre-ihht-seguro"
+    }
+  ],
+  "timingTiming": {
+    "repeat": {
+      "duration": 45,
+      "durationUnit": "min"
+    }
+  },
+  "relatedArtifact": [
+    {
+      "type": "citation",
+      "display": "Serebrovskaya TV et al. Intermittent hypoxia: from preventive medicine to performance enhancement. Eur J Appl Physiol 2014;114(7):1421-30."
+    },
+    {
+      "type": "citation",
+      "display": "Behrendt T et al. Effects of Intermittent Hypoxia-Hyperoxia on Performance and Cognitive Function in Healthy Adults. Front Physiol 2022;13:899590."
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "resourceType": "AccessPolicy",
+  "id": "ap-director-medico",
+  "name": "ap-director-medico",
+  "description": "AccessPolicy del Director Médico. Superset de ap-medico: incluye todas las capabilities del médico del programa + autorización exclusiva sobre terapias biológicas (servicios punto 5 del Consent) + lectura full de logs operativos. En ausencia del director, los médicos del programa (ap-medico) pueden hacer las evaluaciones con misma autoridad (ADR-031 backup flexible).",
+  "resource": [
+    {
+      "resourceType": "Patient",
+      "readonly": false
+    },
+    {
+      "resourceType": "Encounter",
+      "readonly": false
+    },
+    {
+      "resourceType": "Observation",
+      "readonly": false
+    },
+    {
+      "resourceType": "Condition",
+      "readonly": false
+    },
+    {
+      "resourceType": "MedicationRequest",
+      "readonly": false
+    },
+    {
+      "resourceType": "ServiceRequest",
+      "readonly": false
+    },
+    {
+      "resourceType": "DiagnosticReport",
+      "readonly": false
+    },
+    {
+      "resourceType": "CarePlan",
+      "readonly": false
+    },
+    {
+      "resourceType": "Task",
+      "readonly": false
+    },
+    {
+      "resourceType": "Consent",
+      "readonly": false
+    },
+    {
+      "resourceType": "QuestionnaireResponse",
+      "readonly": false
+    },
+    {
+      "resourceType": "Appointment",
+      "readonly": false
+    },
+    {
+      "resourceType": "Schedule",
+      "readonly": false
+    },
+    {
+      "resourceType": "Slot",
+      "readonly": false
+    },
+    {
+      "resourceType": "DocumentReference",
+      "readonly": false
+    },
+    {
+      "resourceType": "ChargeItem",
+      "readonly": false
+    },
+    {
+      "resourceType": "Provenance",
+      "readonly": true
+    },
+    {
+      "resourceType": "AuditEvent",
+      "readonly": true
+    },
+    {
+      "resourceType": "PlanDefinition",
+      "readonly": true
+    },
+    {
+      "resourceType": "ActivityDefinition",
+      "readonly": true
+    },
+    {
+      "resourceType": "ObservationDefinition",
+      "readonly": true
+    },
+    {
+      "resourceType": "Questionnaire",
+      "readonly": true
+    },
+    {
+      "resourceType": "Library",
+      "readonly": true
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "iscca-rol-staff",
+  "url": "https://biowellness.ar/fhir/CodeSystem/iscca-rol-staff",
+  "version": "0.2.0",
+  "name": "IsccaRolStaff",
+  "title": "BIOWELLNESS Staff Roles",
+  "status": "draft",
+  "experimental": true,
+  "date": "2026-05-19",
+  "publisher": "BIOWELLNESS Argentina",
+  "description": "Códigos de roles del staff de BIOWELLNESS. Cambios vs v0.1.0: agrego director-medico, rename hiperbarista→hbot-operator, mantengo médico programa, nutricionista, osteópata, secretaría.",
+  "content": "complete",
+  "caseSensitive": true,
+  "count": 6,
+  "concept": [
+    {
+      "code": "director-medico",
+      "display": "Director Médico",
+      "definition": "Director médico con responsabilidades exclusivas según Consent legal (terapias biológicas, validación PlanDefinitions complejos). Backup flexible: medico-programa per ADR-031."
+    },
+    {
+      "code": "medico-programa",
+      "display": "Médico del Programa",
+      "definition": "Médico del centro con autoridad clínica de prescribir, ejecutar journey, asignar fenotipo. En ausencia del director-medico, puede hacer evaluación de terapias biológicas con misma autoridad."
+    },
+    {
+      "code": "hbot-operator",
+      "display": "HBOT Operator",
+      "definition": "Operador de cámaras hiperbáricas (monoplaza y multiplaza). Capacitación específica en seguridad hiperbárica. Renombrado de 'hiperbarista' en v0.1.0 → 'hbot-operator' en v0.2.0 (terminología internacional)."
+    },
+    {
+      "code": "nutricionista",
+      "display": "Nutricionista",
+      "definition": "Licenciado en nutrición. Responsable de planes alimentarios + barra saludable."
+    },
+    {
+      "code": "osteopata",
+      "display": "Osteópata",
+      "definition": "Osteópata habilitado. Puede coexistir con rol hbot-operator en el mismo Practitioner (caso Nikita Boltruchek, ADR-027)."
+    },
+    {
+      "code": "secretaria",
+      "display": "Secretaría",
+      "definition": "Personal administrativo / recepción. Gestión de Appointments + comunicación con pacientes."
+    }
+  ]
+}

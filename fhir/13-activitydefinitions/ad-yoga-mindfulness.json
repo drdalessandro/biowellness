@@ -1,0 +1,18 @@
+{
+  "resourceType": "ActivityDefinition",
+  "id": "ad-yoga-mindfulness",
+  "url": "https://biowellness.ar/fhir/ActivityDefinition/ad-yoga-mindfulness",
+  "version": "0.1.0",
+  "name": "YogaMindfulness",
+  "title": "Yoga / Meditación / Mindfulness — Sesión",
+  "status": "draft",
+  "publisher": "BIOWELLNESS Argentina",
+  "description": "Sesión guiada de yoga, meditación o mindfulness (30 min). Cierre del combo BIO BALANCE en estado parasimpático predominante.",
+  "kind": "ServiceRequest",
+  "code": {
+    "coding": [{ "system": "https://biowellness.ar/fhir/CodeSystem/iscca-tipo-intervencion", "code": "mindfulness-meditacion" }]
+  },
+  "extension": [
+    { "url": "https://biowellness.ar/fhir/StructureDefinition/iscca-nivel-evidencia", "valueCode": "nivel-1-estandar" }
+  ]
+}
