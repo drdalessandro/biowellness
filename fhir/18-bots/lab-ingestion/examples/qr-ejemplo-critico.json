@@ -1,0 +1,25 @@
+{
+  "resourceType": "QuestionnaireResponse",
+  "questionnaire": "https://biowellness.ar/fhir/Questionnaire/q-lab-panel-basico",
+  "status": "completed",
+  "subject": {
+    "reference": "Patient/REEMPLAZAR-CON-PATIENT-ID-REAL",
+    "display": "Paciente de prueba (críticos)"
+  },
+  "authored": "2026-05-22T10:00:00-03:00",
+  "item": [
+    {
+      "linkId": "grupo-metabolico",
+      "item": [
+        { "linkId": "glucosa", "answer": [{ "valueDecimal": 285 }] },
+        { "linkId": "hba1c", "answer": [{ "valueDecimal": 9.8 }] }
+      ]
+    },
+    {
+      "linkId": "grupo-inflamacion-renal",
+      "item": [
+        { "linkId": "hs-crp", "answer": [{ "valueDecimal": 18 }] }
+      ]
+    }
+  ]
+}

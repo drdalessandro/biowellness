@@ -1,0 +1,10 @@
+{
+  "baseUrl": "https://api.medplum.com.ar/",
+  "bots": [
+    {
+      "id": "84dd5b2d-3f4d-4cc3-888e-eaf606e369a9",
+      "name": "lab-ingestion",
+      "dist": "fhir/18-bots/lab-ingestion/dist/index.cjs"
+    }
+  ]
+}

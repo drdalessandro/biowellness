@@ -1,0 +1,56 @@
+{
+  "resourceType": "QuestionnaireResponse",
+  "questionnaire": "https://biowellness.ar/fhir/Questionnaire/q-lab-panel-basico",
+  "status": "completed",
+  "subject": {
+    "reference": "Patient/REEMPLAZAR-CON-PATIENT-ID-REAL",
+    "display": "Paciente de prueba"
+  },
+  "authored": "2026-05-22T10:00:00-03:00",
+  "item": [
+    {
+      "linkId": "grupo-metabolico",
+      "item": [
+        { "linkId": "glucosa", "answer": [{ "valueDecimal": 92 }] },
+        { "linkId": "insulina", "answer": [{ "valueDecimal": 6.5 }] },
+        { "linkId": "homa-ir", "answer": [{ "valueDecimal": 1.3 }] },
+        { "linkId": "hba1c", "answer": [{ "valueDecimal": 5.3 }] },
+        { "linkId": "acido-urico", "answer": [{ "valueDecimal": 4.8 }] }
+      ]
+    },
+    {
+      "linkId": "grupo-lipidico",
+      "item": [
+        { "linkId": "colesterol-total", "answer": [{ "valueDecimal": 185 }] },
+        { "linkId": "ldl", "answer": [{ "valueDecimal": 105 }] },
+        { "linkId": "hdl", "answer": [{ "valueDecimal": 58 }] },
+        { "linkId": "trigliceridos", "answer": [{ "valueDecimal": 95 }] },
+        { "linkId": "lipoproteina-a", "answer": [{ "valueDecimal": 22 }] }
+      ]
+    },
+    {
+      "linkId": "grupo-inflamacion-renal",
+      "item": [
+        { "linkId": "hs-crp", "answer": [{ "valueDecimal": 0.8 }] },
+        { "linkId": "homocisteina", "answer": [{ "valueDecimal": 9.2 }] },
+        { "linkId": "creatinina", "answer": [{ "valueDecimal": 0.9 }] }
+      ]
+    },
+    {
+      "linkId": "grupo-hormonal",
+      "item": [
+        { "linkId": "igf-1", "answer": [{ "valueDecimal": 180 }] },
+        { "linkId": "dhea-s", "answer": [{ "valueDecimal": 250 }] },
+        { "linkId": "cortisol-matutino", "answer": [{ "valueDecimal": 14 }] },
+        { "linkId": "testosterona-total", "answer": [{ "valueDecimal": 550 }] },
+        { "linkId": "tsh", "answer": [{ "valueDecimal": 2.1 }] }
+      ]
+    },
+    {
+      "linkId": "grupo-vitaminas",
+      "item": [
+        { "linkId": "vitamina-d", "answer": [{ "valueDecimal": 38 }] }
+      ]
+    }
+  ]
+}
