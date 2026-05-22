@@ -1,0 +1,22 @@
+{
+  "resourceType": "PractitionerRole",
+  "id": "BW-PRR-005B",
+  "active": true,
+  "practitioner": {
+    "reference": "Practitioner/BW-PRA-005"
+  },
+  "organization": {
+    "reference": "Organization/biowellness"
+  },
+  "code": [
+    {
+      "coding": [
+        {
+          "system": "https://biowellness.ar/fhir/CodeSystem/iscca-rol-staff",
+          "code": "osteopata",
+          "display": "Osteópata (rol secundario)"
+        }
+      ]
+    }
+  ]
+}

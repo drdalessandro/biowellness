@@ -1,0 +1,23 @@
+{
+  "resourceType": "Location",
+  "id": "loc-hbot-multiplaza-a",
+  "status": "active",
+  "name": "Sala HBOT Multiplaza A (4 lugares)",
+  "description": "Cámara HBOT multiplaza grande, 4 pacientes simultáneos. Planta baja.",
+  "physicalType": {
+    "coding": [
+      {
+        "code": "ro"
+      }
+    ]
+  },
+  "managingOrganization": {
+    "reference": "Organization/biowellness"
+  },
+  "extension": [
+    {
+      "url": "https://biowellness.ar/fhir/StructureDefinition/iscca-planta",
+      "valueCode": "planta-baja"
+    }
+  ]
+}

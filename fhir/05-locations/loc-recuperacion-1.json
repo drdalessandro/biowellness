@@ -1,0 +1,18 @@
+{
+  "resourceType": "Location",
+  "id": "loc-recuperacion-1",
+  "status": "active",
+  "name": "Camilla Recuperación 1 (botas + crio)",
+  "description": "Camilla con botas de compresión secuencial + crioterapia integrada. Entrepiso.",
+  "physicalType": {
+    "coding": [
+      {
+        "code": "bd",
+        "display": "Bed"
+      }
+    ]
+  },
+  "managingOrganization": {
+    "reference": "Organization/biowellness"
+  }
+}

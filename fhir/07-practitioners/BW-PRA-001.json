@@ -1,0 +1,46 @@
+{
+  "resourceType": "Practitioner",
+  "id": "BW-PRA-001",
+  "identifier": [
+    {
+      "system": "https://biowellness.ar/fhir/identifier/practitioner",
+      "value": "BW-PRA-001"
+    },
+    {
+      "system": "https://www.argentina.gob.ar/identifier/matricula-nacional",
+      "value": "TODO-MN-CONRADO"
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": "López Alonso",
+      "given": [
+        "Conrado"
+      ],
+      "prefix": [
+        "Dr."
+      ]
+    }
+  ],
+  "telecom": [
+    {
+      "system": "email",
+      "value": "conrado@biowellness.ar"
+    }
+  ],
+  "qualification": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0360",
+            "code": "MD",
+            "display": "Doctor of Medicine"
+          }
+        ]
+      }
+    }
+  ]
+}

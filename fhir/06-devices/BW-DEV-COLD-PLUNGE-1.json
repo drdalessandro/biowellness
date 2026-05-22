@@ -1,0 +1,14 @@
+{
+  "resourceType": "Device",
+  "id": "BW-DEV-COLD-PLUNGE-1",
+  "status": "active",
+  "type": {
+    "text": "Cold plunge tank (3-5°C)"
+  },
+  "owner": {
+    "reference": "Organization/biowellness"
+  },
+  "location": {
+    "reference": "Location/loc-recovery-pro-1"
+  }
+}

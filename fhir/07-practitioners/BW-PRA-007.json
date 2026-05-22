@@ -1,0 +1,17 @@
+{
+  "resourceType": "Practitioner",
+  "id": "BW-PRA-007",
+  "identifier": [
+    {
+      "system": "https://biowellness.ar/fhir/identifier/practitioner",
+      "value": "BW-PRA-007"
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "anonymous",
+      "text": "Secretaría 1 — nombre pendiente"
+    }
+  ]
+}

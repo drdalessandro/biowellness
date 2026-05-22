@@ -1,0 +1,56 @@
+{
+  "resourceType": "Device",
+  "id": "BW-DEV-HBOT-MULTI-A",
+  "identifier": [
+    {
+      "system": "https://biowellness.ar/fhir/identifier/device",
+      "value": "BW-DEV-HBOT-MULTI-A"
+    }
+  ],
+  "status": "active",
+  "type": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "21082005",
+        "display": "Hyperbaric oxygen chamber"
+      }
+    ],
+    "text": "Cámara HBOT multiplaza A (4 lugares)"
+  },
+  "owner": {
+    "reference": "Organization/biowellness"
+  },
+  "location": {
+    "reference": "Location/loc-hbot-multiplaza-a"
+  },
+  "property": [
+    {
+      "type": {
+        "text": "capacidad-personas"
+      },
+      "valueQuantity": [
+        {
+          "value": 4,
+          "unit": "person"
+        }
+      ]
+    },
+    {
+      "type": {
+        "text": "presion-maxima-ata"
+      },
+      "valueQuantity": [
+        {
+          "value": 2.5,
+          "unit": "ATA"
+        }
+      ]
+    }
+  ],
+  "note": [
+    {
+      "text": "Cámara multiplaza grande. 4 pacientes simultáneos. Requiere operator dedicado durante toda la sesión."
+    }
+  ]
+}

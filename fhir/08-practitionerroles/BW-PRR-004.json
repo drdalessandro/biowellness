@@ -1,0 +1,22 @@
+{
+  "resourceType": "PractitionerRole",
+  "id": "BW-PRR-004",
+  "active": true,
+  "practitioner": {
+    "reference": "Practitioner/BW-PRA-004"
+  },
+  "organization": {
+    "reference": "Organization/biowellness"
+  },
+  "code": [
+    {
+      "coding": [
+        {
+          "system": "https://biowellness.ar/fhir/CodeSystem/iscca-rol-staff",
+          "code": "hbot-operator",
+          "display": "HBOT Operator"
+        }
+      ]
+    }
+  ]
+}

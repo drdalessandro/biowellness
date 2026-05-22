@@ -1,0 +1,16 @@
+{
+  "resourceType": "Location",
+  "id": "loc-recuperacion-2",
+  "status": "active",
+  "name": "Camilla Recuperación 2 (botas + crio)",
+  "physicalType": {
+    "coding": [
+      {
+        "code": "bd"
+      }
+    ]
+  },
+  "managingOrganization": {
+    "reference": "Organization/biowellness"
+  }
+}

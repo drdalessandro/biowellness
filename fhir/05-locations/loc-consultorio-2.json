@@ -1,0 +1,16 @@
+{
+  "resourceType": "Location",
+  "id": "loc-consultorio-2",
+  "status": "active",
+  "name": "Consultorio Médico 2",
+  "physicalType": {
+    "coding": [
+      {
+        "code": "ro"
+      }
+    ]
+  },
+  "managingOrganization": {
+    "reference": "Organization/biowellness"
+  }
+}

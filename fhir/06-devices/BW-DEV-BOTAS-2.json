@@ -1,0 +1,14 @@
+{
+  "resourceType": "Device",
+  "id": "BW-DEV-BOTAS-2",
+  "status": "active",
+  "type": {
+    "text": "Botas compresión neumática secuencial + crio integrada"
+  },
+  "owner": {
+    "reference": "Organization/biowellness"
+  },
+  "location": {
+    "reference": "Location/loc-recuperacion-2"
+  }
+}

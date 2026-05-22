@@ -1,0 +1,26 @@
+{
+  "resourceType": "Practitioner",
+  "id": "BW-PRA-004",
+  "identifier": [
+    {
+      "system": "https://biowellness.ar/fhir/identifier/practitioner",
+      "value": "BW-PRA-004"
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": "Varela",
+      "given": [
+        "Evangelina"
+      ]
+    }
+  ],
+  "telecom": [
+    {
+      "system": "email",
+      "value": "evangelina@biowellness.ar"
+    }
+  ]
+}

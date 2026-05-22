@@ -1,0 +1,17 @@
+{
+  "resourceType": "Location",
+  "id": "loc-recovery-pro-1",
+  "status": "active",
+  "name": "Recovery Pro Gabinete 1",
+  "description": "Gabinete con circuito sauna finlandesa + cold plunge + red light. Planta baja.",
+  "physicalType": {
+    "coding": [
+      {
+        "code": "ro"
+      }
+    ]
+  },
+  "managingOrganization": {
+    "reference": "Organization/biowellness"
+  }
+}

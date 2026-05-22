@@ -1,0 +1,17 @@
+{
+  "resourceType": "Location",
+  "id": "loc-red-light",
+  "status": "active",
+  "name": "Sala Red Light Independiente",
+  "description": "Sala de fotobiomodulación red light/NIR independiente del circuito Recovery Pro. Entrepiso. Para sesiones de Red Light dedicadas (parte del combo BIO ENERGY).",
+  "physicalType": {
+    "coding": [
+      {
+        "code": "ro"
+      }
+    ]
+  },
+  "managingOrganization": {
+    "reference": "Organization/biowellness"
+  }
+}

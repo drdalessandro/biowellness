@@ -1,0 +1,29 @@
+{
+  "resourceType": "Practitioner",
+  "id": "BW-PRA-006",
+  "identifier": [
+    {
+      "system": "https://biowellness.ar/fhir/identifier/practitioner",
+      "value": "BW-PRA-006"
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": "Sívori",
+      "given": [
+        "Diego"
+      ],
+      "prefix": [
+        "Lic."
+      ]
+    }
+  ],
+  "telecom": [
+    {
+      "system": "email",
+      "value": "diego@biowellness.ar"
+    }
+  ]
+}

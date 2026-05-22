@@ -1,0 +1,22 @@
+{
+  "resourceType": "Device",
+  "id": "BW-DEV-IHHT-2",
+  "identifier": [
+    {
+      "system": "https://biowellness.ar/fhir/identifier/device",
+      "value": "BW-DEV-IHHT-2"
+    }
+  ],
+  "status": "active",
+  "manufacturer": "Longfian",
+  "modelNumber": "Jay 20H",
+  "type": {
+    "text": "Equipo IHHT Longfian Jay 20H"
+  },
+  "owner": {
+    "reference": "Organization/biowellness"
+  },
+  "location": {
+    "reference": "Location/loc-ihht-2"
+  }
+}

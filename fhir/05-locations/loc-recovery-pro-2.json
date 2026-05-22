@@ -1,0 +1,16 @@
+{
+  "resourceType": "Location",
+  "id": "loc-recovery-pro-2",
+  "status": "active",
+  "name": "Recovery Pro Gabinete 2",
+  "physicalType": {
+    "coding": [
+      {
+        "code": "ro"
+      }
+    ]
+  },
+  "managingOrganization": {
+    "reference": "Organization/biowellness"
+  }
+}

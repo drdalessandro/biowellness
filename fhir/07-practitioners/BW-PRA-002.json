@@ -1,0 +1,45 @@
+{
+  "resourceType": "Practitioner",
+  "id": "BW-PRA-002",
+  "identifier": [
+    {
+      "system": "https://biowellness.ar/fhir/identifier/practitioner",
+      "value": "BW-PRA-002"
+    },
+    {
+      "system": "https://www.argentina.gob.ar/identifier/matricula-nacional",
+      "value": "TODO-MN-STEPHANIE"
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": "Dos Santos",
+      "given": [
+        "Stephanie"
+      ],
+      "prefix": [
+        "Dra."
+      ]
+    }
+  ],
+  "telecom": [
+    {
+      "system": "email",
+      "value": "stephanie@biowellness.ar"
+    }
+  ],
+  "qualification": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0360",
+            "code": "MD"
+          }
+        ]
+      }
+    }
+  ]
+}

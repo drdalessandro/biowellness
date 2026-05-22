@@ -1,0 +1,22 @@
+{
+  "resourceType": "PractitionerRole",
+  "id": "BW-PRR-002",
+  "active": true,
+  "practitioner": {
+    "reference": "Practitioner/BW-PRA-002"
+  },
+  "organization": {
+    "reference": "Organization/biowellness"
+  },
+  "code": [
+    {
+      "coding": [
+        {
+          "system": "https://biowellness.ar/fhir/CodeSystem/iscca-rol-staff",
+          "code": "medico-programa",
+          "display": "Médica del programa"
+        }
+      ]
+    }
+  ]
+}

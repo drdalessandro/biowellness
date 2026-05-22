@@ -1,0 +1,17 @@
+{
+  "resourceType": "Location",
+  "id": "loc-consultorio-director",
+  "status": "active",
+  "name": "Consultorio Director Médico",
+  "description": "Consultorio del Dr. Conrado López Alonso.",
+  "physicalType": {
+    "coding": [
+      {
+        "code": "ro"
+      }
+    ]
+  },
+  "managingOrganization": {
+    "reference": "Organization/biowellness"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "resourceType": "PractitionerRole",
+  "id": "BW-PRR-006",
+  "active": true,
+  "practitioner": {
+    "reference": "Practitioner/BW-PRA-006"
+  },
+  "organization": {
+    "reference": "Organization/biowellness"
+  },
+  "code": [
+    {
+      "coding": [
+        {
+          "system": "https://biowellness.ar/fhir/CodeSystem/iscca-rol-staff",
+          "code": "nutricionista",
+          "display": "Nutricionista"
+        }
+      ]
+    }
+  ]
+}

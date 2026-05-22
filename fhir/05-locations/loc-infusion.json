@@ -1,0 +1,27 @@
+{
+  "resourceType": "Location",
+  "id": "loc-infusion",
+  "status": "active",
+  "name": "Sala de Infusión IV",
+  "description": "Sala con 3 puestos (sillón + pie de suero). Entrepiso.",
+  "physicalType": {
+    "coding": [
+      {
+        "code": "ro"
+      }
+    ]
+  },
+  "managingOrganization": {
+    "reference": "Organization/biowellness"
+  },
+  "extension": [
+    {
+      "url": "https://biowellness.ar/fhir/StructureDefinition/iscca-planta",
+      "valueCode": "entrepiso"
+    },
+    {
+      "url": "https://biowellness.ar/fhir/StructureDefinition/iscca-capacidad-simultanea",
+      "valueInteger": 3
+    }
+  ]
+}

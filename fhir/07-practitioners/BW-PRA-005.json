@@ -1,0 +1,30 @@
+{
+  "resourceType": "Practitioner",
+  "id": "BW-PRA-005",
+  "identifier": [
+    {
+      "system": "https://biowellness.ar/fhir/identifier/practitioner",
+      "value": "BW-PRA-005"
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": "Boltruchek",
+      "given": [
+        "Nikita"
+      ]
+    }
+  ],
+  "telecom": [
+    {
+      "system": "email",
+      "value": "nikita@biowellness.ar"
+    },
+    {
+      "system": "url",
+      "value": "https://www.linkedin.com/in/nikita-boltruchek-a4063571/"
+    }
+  ]
+}

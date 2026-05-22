@@ -1,0 +1,33 @@
+{
+  "resourceType": "PractitionerRole",
+  "id": "BW-PRR-001",
+  "active": true,
+  "practitioner": {
+    "reference": "Practitioner/BW-PRA-001"
+  },
+  "organization": {
+    "reference": "Organization/biowellness"
+  },
+  "code": [
+    {
+      "coding": [
+        {
+          "system": "https://biowellness.ar/fhir/CodeSystem/iscca-rol-staff",
+          "code": "director-medico",
+          "display": "Director Médico"
+        }
+      ]
+    }
+  ],
+  "specialty": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "394579002",
+          "display": "Cardiology"
+        }
+      ]
+    }
+  ]
+}

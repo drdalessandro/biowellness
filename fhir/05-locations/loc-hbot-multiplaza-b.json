@@ -1,0 +1,22 @@
+{
+  "resourceType": "Location",
+  "id": "loc-hbot-multiplaza-b",
+  "status": "active",
+  "name": "Sala HBOT Multiplaza B (2 lugares)",
+  "physicalType": {
+    "coding": [
+      {
+        "code": "ro"
+      }
+    ]
+  },
+  "managingOrganization": {
+    "reference": "Organization/biowellness"
+  },
+  "extension": [
+    {
+      "url": "https://biowellness.ar/fhir/StructureDefinition/iscca-planta",
+      "valueCode": "planta-baja"
+    }
+  ]
+}

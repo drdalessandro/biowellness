@@ -1,0 +1,22 @@
+{
+  "resourceType": "PractitionerRole",
+  "id": "BW-PRR-007",
+  "active": true,
+  "practitioner": {
+    "reference": "Practitioner/BW-PRA-007"
+  },
+  "organization": {
+    "reference": "Organization/biowellness"
+  },
+  "code": [
+    {
+      "coding": [
+        {
+          "system": "https://biowellness.ar/fhir/CodeSystem/iscca-rol-staff",
+          "code": "secretaria",
+          "display": "Secretaría"
+        }
+      ]
+    }
+  ]
+}

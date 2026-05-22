@@ -1,0 +1,14 @@
+{
+  "resourceType": "Device",
+  "id": "BW-DEV-RED-LIGHT-PANEL",
+  "status": "active",
+  "type": {
+    "text": "Panel red light + near infrared (660+850 nm)"
+  },
+  "owner": {
+    "reference": "Organization/biowellness"
+  },
+  "location": {
+    "reference": "Location/loc-red-light"
+  }
+}

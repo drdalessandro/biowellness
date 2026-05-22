@@ -1,0 +1,56 @@
+{
+  "resourceType": "Device",
+  "id": "BW-DEV-HBOT-MONO",
+  "identifier": [
+    {
+      "system": "https://biowellness.ar/fhir/identifier/device",
+      "value": "BW-DEV-HBOT-MONO"
+    }
+  ],
+  "status": "active",
+  "type": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "21082005",
+        "display": "Hyperbaric oxygen chamber"
+      }
+    ],
+    "text": "Cámara HBOT monoplaza"
+  },
+  "owner": {
+    "reference": "Organization/biowellness"
+  },
+  "location": {
+    "reference": "Location/loc-hbot-monoplaza"
+  },
+  "property": [
+    {
+      "type": {
+        "text": "capacidad-personas"
+      },
+      "valueQuantity": [
+        {
+          "value": 1,
+          "unit": "person"
+        }
+      ]
+    },
+    {
+      "type": {
+        "text": "presion-maxima-ata"
+      },
+      "valueQuantity": [
+        {
+          "value": 2.5,
+          "unit": "ATA"
+        }
+      ]
+    }
+  ],
+  "note": [
+    {
+      "text": "Cámara individual rígida. Presión 1.5-2.5 ATA. Capacidad: 1 paciente por sesión."
+    }
+  ]
+}

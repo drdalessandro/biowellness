@@ -1,0 +1,17 @@
+{
+  "resourceType": "Location",
+  "id": "loc-osteopatia",
+  "status": "active",
+  "name": "Sala de Osteopatía",
+  "description": "Espacio dedicado para osteopatía (Nikita). Entrepiso.",
+  "physicalType": {
+    "coding": [
+      {
+        "code": "ro"
+      }
+    ]
+  },
+  "managingOrganization": {
+    "reference": "Organization/biowellness"
+  }
+}

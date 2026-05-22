@@ -1,0 +1,17 @@
+{
+  "resourceType": "Location",
+  "id": "loc-ihht-1",
+  "status": "active",
+  "name": "Sala IHHT 1",
+  "description": "Equipo Longfian Jay 20H #1. Planta baja.",
+  "physicalType": {
+    "coding": [
+      {
+        "code": "ro"
+      }
+    ]
+  },
+  "managingOrganization": {
+    "reference": "Organization/biowellness"
+  }
+}
