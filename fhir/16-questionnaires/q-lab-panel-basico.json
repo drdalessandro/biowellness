@@ -1,0 +1,170 @@
+{
+  "resourceType": "Questionnaire",
+  "id": "q-lab-panel-basico",
+  "url": "https://biowellness.ar/fhir/Questionnaire/q-lab-panel-basico",
+  "identifier": [
+    {
+      "system": "https://biowellness.ar/fhir/identifier/questionnaire",
+      "value": "BW-Q-LAB-001"
+    }
+  ],
+  "version": "0.1.0",
+  "name": "LabPanelBasico",
+  "title": "Panel de Laboratorio BIOWELLNESS",
+  "status": "active",
+  "subjectType": ["Patient"],
+  "date": "2026-05-22",
+  "publisher": "BIOWELLNESS Argentina",
+  "description": "Formulario de carga de resultados de laboratorio. Cada item mapea a un LOINC code procesado por el Bot lab-ingestion. Fuente agnóstica: chart médico (MVP) o portal paciente (V2). Los linkId DEBEN coincidir con LOINC_MAP en el Bot.",
+  "item": [
+    {
+      "linkId": "grupo-metabolico",
+      "text": "Panel Metabólico",
+      "type": "group",
+      "item": [
+        {
+          "linkId": "glucosa",
+          "text": "Glucosa en ayunas (mg/dL)",
+          "type": "decimal",
+          "code": [{ "system": "http://loinc.org", "code": "2345-7" }]
+        },
+        {
+          "linkId": "insulina",
+          "text": "Insulina basal (uIU/mL)",
+          "type": "decimal",
+          "code": [{ "system": "http://loinc.org", "code": "20448-7" }]
+        },
+        {
+          "linkId": "homa-ir",
+          "text": "HOMA-IR (índice)",
+          "type": "decimal",
+          "code": [{ "system": "http://loinc.org", "code": "88110-5" }]
+        },
+        {
+          "linkId": "hba1c",
+          "text": "Hemoglobina glicosilada A1c (%)",
+          "type": "decimal",
+          "code": [{ "system": "http://loinc.org", "code": "4548-4" }]
+        },
+        {
+          "linkId": "acido-urico",
+          "text": "Ácido úrico (mg/dL)",
+          "type": "decimal",
+          "code": [{ "system": "http://loinc.org", "code": "3084-1" }]
+        }
+      ]
+    },
+    {
+      "linkId": "grupo-lipidico",
+      "text": "Perfil Lipídico",
+      "type": "group",
+      "item": [
+        {
+          "linkId": "colesterol-total",
+          "text": "Colesterol total (mg/dL)",
+          "type": "decimal",
+          "code": [{ "system": "http://loinc.org", "code": "2093-3" }]
+        },
+        {
+          "linkId": "ldl",
+          "text": "Colesterol LDL (mg/dL)",
+          "type": "decimal",
+          "code": [{ "system": "http://loinc.org", "code": "18262-6" }]
+        },
+        {
+          "linkId": "hdl",
+          "text": "Colesterol HDL (mg/dL)",
+          "type": "decimal",
+          "code": [{ "system": "http://loinc.org", "code": "2085-9" }]
+        },
+        {
+          "linkId": "trigliceridos",
+          "text": "Triglicéridos (mg/dL)",
+          "type": "decimal",
+          "code": [{ "system": "http://loinc.org", "code": "2571-8" }]
+        },
+        {
+          "linkId": "lipoproteina-a",
+          "text": "Lipoproteína(a) (mg/dL)",
+          "type": "decimal",
+          "code": [{ "system": "http://loinc.org", "code": "10835-7" }]
+        }
+      ]
+    },
+    {
+      "linkId": "grupo-inflamacion-renal",
+      "text": "Inflamación y Función Renal",
+      "type": "group",
+      "item": [
+        {
+          "linkId": "hs-crp",
+          "text": "PCR ultrasensible (mg/L)",
+          "type": "decimal",
+          "code": [{ "system": "http://loinc.org", "code": "30522-7" }]
+        },
+        {
+          "linkId": "homocisteina",
+          "text": "Homocisteína (umol/L)",
+          "type": "decimal",
+          "code": [{ "system": "http://loinc.org", "code": "13965-9" }]
+        },
+        {
+          "linkId": "creatinina",
+          "text": "Creatinina sérica (mg/dL)",
+          "type": "decimal",
+          "code": [{ "system": "http://loinc.org", "code": "2160-0" }]
+        }
+      ]
+    },
+    {
+      "linkId": "grupo-hormonal",
+      "text": "Panel Hormonal",
+      "type": "group",
+      "item": [
+        {
+          "linkId": "igf-1",
+          "text": "IGF-1 (ng/mL)",
+          "type": "decimal",
+          "code": [{ "system": "http://loinc.org", "code": "2484-4" }]
+        },
+        {
+          "linkId": "dhea-s",
+          "text": "DHEA-S (ug/dL)",
+          "type": "decimal",
+          "code": [{ "system": "http://loinc.org", "code": "2191-5" }]
+        },
+        {
+          "linkId": "cortisol-matutino",
+          "text": "Cortisol matutino 8 AM (ug/dL)",
+          "type": "decimal",
+          "code": [{ "system": "http://loinc.org", "code": "2143-6" }]
+        },
+        {
+          "linkId": "testosterona-total",
+          "text": "Testosterona total (ng/dL)",
+          "type": "decimal",
+          "code": [{ "system": "http://loinc.org", "code": "2986-8" }]
+        },
+        {
+          "linkId": "tsh",
+          "text": "TSH (mIU/L)",
+          "type": "decimal",
+          "code": [{ "system": "http://loinc.org", "code": "3016-3" }]
+        }
+      ]
+    },
+    {
+      "linkId": "grupo-vitaminas",
+      "text": "Vitaminas",
+      "type": "group",
+      "item": [
+        {
+          "linkId": "vitamina-d",
+          "text": "Vitamina D 25-OH (ng/mL)",
+          "type": "decimal",
+          "code": [{ "system": "http://loinc.org", "code": "1989-3" }]
+        }
+      ]
+    }
+  ]
+}
