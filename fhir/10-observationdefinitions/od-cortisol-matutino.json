@@ -1,14 +1,43 @@
 {
   "resourceType": "ObservationDefinition",
   "id": "obs-def-cortisol-matutino",
-  "url": "https://biowellness.ar/fhir/ObservationDefinition/obs-def-cortisol-matutino",
-  "version": "0.1.0",
   "code": {
-    "coding": [{ "system": "http://loinc.org", "code": "2143-6", "display": "Cortisol [Mass/volume] in Serum or Plasma" }]
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "2143-6",
+        "display": "Cortisol [Mass/volume] in Serum or Plasma"
+      }
+    ]
   },
   "preferredReportName": "Cortisol matutino (8 AM)",
-  "quantitativeDetails": { "unit": { "coding": [{ "code": "ug/dL" }] } },
+  "quantitativeDetails": {
+    "unit": {
+      "coding": [
+        {
+          "code": "ug/dL"
+        }
+      ]
+    }
+  },
   "qualifiedInterval": [
-    { "category": "reference", "range": { "low": { "value": 6 }, "high": { "value": 23 } }, "context": { "coding": [{ "code": "lab-reference" }] } }
+    {
+      "category": "reference",
+      "range": {
+        "low": {
+          "value": 6
+        },
+        "high": {
+          "value": 23
+        }
+      },
+      "context": {
+        "coding": [
+          {
+            "code": "lab-reference"
+          }
+        ]
+      }
+    }
   ]
 }

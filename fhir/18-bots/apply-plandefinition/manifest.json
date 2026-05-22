@@ -1,10 +1,13 @@
 {
   "resourceType": "Bot",
   "id": "apply-plandefinition",
-  "identifier": [{ "system": "https://biowellness.ar/fhir/identifier/bot", "value": "BW-BOT-001" }],
+  "identifier": [
+    {
+      "system": "https://biowellness.ar/fhir/identifier/bot",
+      "value": "BW-BOT-001"
+    }
+  ],
   "name": "apply-plandefinition",
   "description": "Orquestador: recibe (PlanDefinition, Patient) y genera la cadena de 38-50 recursos derivados que materializa el journey.",
-  "runtimeVersion": "awslambda",
-  "version": "0.1.0",
-  "auditEnabled": true
+  "runtimeVersion": "awslambda"
 }

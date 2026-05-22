@@ -1,16 +1,75 @@
 {
   "resourceType": "ObservationDefinition",
   "id": "obs-def-acido-urico",
-  "url": "https://biowellness.ar/fhir/ObservationDefinition/obs-def-acido-urico",
-  "version": "0.1.0",
   "code": {
-    "coding": [{ "system": "http://loinc.org", "code": "3084-1", "display": "Urate [Mass/volume] in Serum or Plasma" }]
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "3084-1",
+        "display": "Urate [Mass/volume] in Serum or Plasma"
+      }
+    ]
   },
   "preferredReportName": "Ácido Úrico",
-  "quantitativeDetails": { "unit": { "coding": [{ "code": "mg/dL" }] } },
+  "quantitativeDetails": {
+    "unit": {
+      "coding": [
+        {
+          "code": "mg/dL"
+        }
+      ]
+    }
+  },
   "qualifiedInterval": [
-    { "category": "reference", "range": { "low": { "value": 2.5 }, "high": { "value": 7.0 } }, "context": { "coding": [{ "code": "lab-reference" }] } },
-    { "category": "reference", "gender": "male", "range": { "high": { "value": 5.5 } }, "context": { "coding": [{ "code": "optimo-biowellness" }] } },
-    { "category": "reference", "gender": "female", "range": { "high": { "value": 4.5 } }, "context": { "coding": [{ "code": "optimo-biowellness" }] } }
+    {
+      "category": "reference",
+      "range": {
+        "low": {
+          "value": 2.5
+        },
+        "high": {
+          "value": 7
+        }
+      },
+      "context": {
+        "coding": [
+          {
+            "code": "lab-reference"
+          }
+        ]
+      }
+    },
+    {
+      "category": "reference",
+      "gender": "male",
+      "range": {
+        "high": {
+          "value": 5.5
+        }
+      },
+      "context": {
+        "coding": [
+          {
+            "code": "optimo-biowellness"
+          }
+        ]
+      }
+    },
+    {
+      "category": "reference",
+      "gender": "female",
+      "range": {
+        "high": {
+          "value": 4.5
+        }
+      },
+      "context": {
+        "coding": [
+          {
+            "code": "optimo-biowellness"
+          }
+        ]
+      }
+    }
   ]
 }

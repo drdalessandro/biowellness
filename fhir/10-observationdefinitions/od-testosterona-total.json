@@ -1,15 +1,63 @@
 {
   "resourceType": "ObservationDefinition",
   "id": "obs-def-testosterona-total",
-  "url": "https://biowellness.ar/fhir/ObservationDefinition/obs-def-testosterona-total",
-  "version": "0.1.0",
   "code": {
-    "coding": [{ "system": "http://loinc.org", "code": "2986-8", "display": "Testosterone [Mass/volume] in Serum or Plasma" }]
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "2986-8",
+        "display": "Testosterone [Mass/volume] in Serum or Plasma"
+      }
+    ]
   },
   "preferredReportName": "Testosterona Total",
-  "quantitativeDetails": { "unit": { "coding": [{ "code": "ng/dL" }] } },
+  "quantitativeDetails": {
+    "unit": {
+      "coding": [
+        {
+          "code": "ng/dL"
+        }
+      ]
+    }
+  },
   "qualifiedInterval": [
-    { "category": "reference", "gender": "male", "range": { "low": { "value": 300 }, "high": { "value": 1000 } }, "context": { "coding": [{ "code": "lab-reference" }] } },
-    { "category": "reference", "gender": "female", "range": { "low": { "value": 15 }, "high": { "value": 70 } }, "context": { "coding": [{ "code": "lab-reference" }] } }
+    {
+      "category": "reference",
+      "gender": "male",
+      "range": {
+        "low": {
+          "value": 300
+        },
+        "high": {
+          "value": 1000
+        }
+      },
+      "context": {
+        "coding": [
+          {
+            "code": "lab-reference"
+          }
+        ]
+      }
+    },
+    {
+      "category": "reference",
+      "gender": "female",
+      "range": {
+        "low": {
+          "value": 15
+        },
+        "high": {
+          "value": 70
+        }
+      },
+      "context": {
+        "coding": [
+          {
+            "code": "lab-reference"
+          }
+        ]
+      }
+    }
   ]
 }

@@ -1,16 +1,18 @@
 {
   "resourceType": "Bundle",
-  "id": "biowellness-practitionerroles",
   "type": "transaction",
   "entry": [
     {
-      "fullUrl": "urn:uuid:bw-prr-001",
       "resource": {
         "resourceType": "PractitionerRole",
         "id": "BW-PRR-001",
         "active": true,
-        "practitioner": { "reference": "Practitioner/BW-PRA-001" },
-        "organization": { "reference": "Organization/biowellness" },
+        "practitioner": {
+          "reference": "Practitioner/BW-PRA-001"
+        },
+        "organization": {
+          "reference": "Organization/biowellness"
+        },
         "code": [
           {
             "coding": [
@@ -34,16 +36,22 @@
           }
         ]
       },
-      "request": { "method": "PUT", "url": "PractitionerRole/BW-PRR-001" }
+      "request": {
+        "method": "PUT",
+        "url": "PractitionerRole/BW-PRR-001"
+      }
     },
     {
-      "fullUrl": "urn:uuid:bw-prr-002",
       "resource": {
         "resourceType": "PractitionerRole",
         "id": "BW-PRR-002",
         "active": true,
-        "practitioner": { "reference": "Practitioner/BW-PRA-002" },
-        "organization": { "reference": "Organization/biowellness" },
+        "practitioner": {
+          "reference": "Practitioner/BW-PRA-002"
+        },
+        "organization": {
+          "reference": "Organization/biowellness"
+        },
         "code": [
           {
             "coding": [
@@ -56,16 +64,22 @@
           }
         ]
       },
-      "request": { "method": "PUT", "url": "PractitionerRole/BW-PRR-002" }
+      "request": {
+        "method": "PUT",
+        "url": "PractitionerRole/BW-PRR-002"
+      }
     },
     {
-      "fullUrl": "urn:uuid:bw-prr-003",
       "resource": {
         "resourceType": "PractitionerRole",
         "id": "BW-PRR-003",
         "active": true,
-        "practitioner": { "reference": "Practitioner/BW-PRA-003" },
-        "organization": { "reference": "Organization/biowellness" },
+        "practitioner": {
+          "reference": "Practitioner/BW-PRA-003"
+        },
+        "organization": {
+          "reference": "Organization/biowellness"
+        },
         "code": [
           {
             "coding": [
@@ -78,16 +92,22 @@
           }
         ]
       },
-      "request": { "method": "PUT", "url": "PractitionerRole/BW-PRR-003" }
+      "request": {
+        "method": "PUT",
+        "url": "PractitionerRole/BW-PRR-003"
+      }
     },
     {
-      "fullUrl": "urn:uuid:bw-prr-004",
       "resource": {
         "resourceType": "PractitionerRole",
         "id": "BW-PRR-004",
         "active": true,
-        "practitioner": { "reference": "Practitioner/BW-PRA-004" },
-        "organization": { "reference": "Organization/biowellness" },
+        "practitioner": {
+          "reference": "Practitioner/BW-PRA-004"
+        },
+        "organization": {
+          "reference": "Organization/biowellness"
+        },
         "code": [
           {
             "coding": [
@@ -100,16 +120,22 @@
           }
         ]
       },
-      "request": { "method": "PUT", "url": "PractitionerRole/BW-PRR-004" }
+      "request": {
+        "method": "PUT",
+        "url": "PractitionerRole/BW-PRR-004"
+      }
     },
     {
-      "fullUrl": "urn:uuid:bw-prr-005a",
       "resource": {
         "resourceType": "PractitionerRole",
         "id": "BW-PRR-005A",
         "active": true,
-        "practitioner": { "reference": "Practitioner/BW-PRA-005" },
-        "organization": { "reference": "Organization/biowellness" },
+        "practitioner": {
+          "reference": "Practitioner/BW-PRA-005"
+        },
+        "organization": {
+          "reference": "Organization/biowellness"
+        },
         "code": [
           {
             "coding": [
@@ -122,16 +148,22 @@
           }
         ]
       },
-      "request": { "method": "PUT", "url": "PractitionerRole/BW-PRR-005A" }
+      "request": {
+        "method": "PUT",
+        "url": "PractitionerRole/BW-PRR-005A"
+      }
     },
     {
-      "fullUrl": "urn:uuid:bw-prr-005b",
       "resource": {
         "resourceType": "PractitionerRole",
         "id": "BW-PRR-005B",
         "active": true,
-        "practitioner": { "reference": "Practitioner/BW-PRA-005" },
-        "organization": { "reference": "Organization/biowellness" },
+        "practitioner": {
+          "reference": "Practitioner/BW-PRA-005"
+        },
+        "organization": {
+          "reference": "Organization/biowellness"
+        },
         "code": [
           {
             "coding": [
@@ -144,16 +176,22 @@
           }
         ]
       },
-      "request": { "method": "PUT", "url": "PractitionerRole/BW-PRR-005B" }
+      "request": {
+        "method": "PUT",
+        "url": "PractitionerRole/BW-PRR-005B"
+      }
     },
     {
-      "fullUrl": "urn:uuid:bw-prr-006",
       "resource": {
         "resourceType": "PractitionerRole",
         "id": "BW-PRR-006",
         "active": true,
-        "practitioner": { "reference": "Practitioner/BW-PRA-006" },
-        "organization": { "reference": "Organization/biowellness" },
+        "practitioner": {
+          "reference": "Practitioner/BW-PRA-006"
+        },
+        "organization": {
+          "reference": "Organization/biowellness"
+        },
         "code": [
           {
             "coding": [
@@ -166,16 +204,22 @@
           }
         ]
       },
-      "request": { "method": "PUT", "url": "PractitionerRole/BW-PRR-006" }
+      "request": {
+        "method": "PUT",
+        "url": "PractitionerRole/BW-PRR-006"
+      }
     },
     {
-      "fullUrl": "urn:uuid:bw-prr-007",
       "resource": {
         "resourceType": "PractitionerRole",
         "id": "BW-PRR-007",
         "active": true,
-        "practitioner": { "reference": "Practitioner/BW-PRA-007" },
-        "organization": { "reference": "Organization/biowellness" },
+        "practitioner": {
+          "reference": "Practitioner/BW-PRA-007"
+        },
+        "organization": {
+          "reference": "Organization/biowellness"
+        },
         "code": [
           {
             "coding": [
@@ -188,16 +232,22 @@
           }
         ]
       },
-      "request": { "method": "PUT", "url": "PractitionerRole/BW-PRR-007" }
+      "request": {
+        "method": "PUT",
+        "url": "PractitionerRole/BW-PRR-007"
+      }
     },
     {
-      "fullUrl": "urn:uuid:bw-prr-008",
       "resource": {
         "resourceType": "PractitionerRole",
         "id": "BW-PRR-008",
         "active": true,
-        "practitioner": { "reference": "Practitioner/BW-PRA-008" },
-        "organization": { "reference": "Organization/biowellness" },
+        "practitioner": {
+          "reference": "Practitioner/BW-PRA-008"
+        },
+        "organization": {
+          "reference": "Organization/biowellness"
+        },
         "code": [
           {
             "coding": [
@@ -210,7 +260,10 @@
           }
         ]
       },
-      "request": { "method": "PUT", "url": "PractitionerRole/BW-PRR-008" }
+      "request": {
+        "method": "PUT",
+        "url": "PractitionerRole/BW-PRR-008"
+      }
     }
   ]
 }

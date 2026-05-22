@@ -1,209 +1,376 @@
 {
   "resourceType": "Bundle",
-  "id": "biowellness-locations",
   "type": "transaction",
   "entry": [
     {
-      "fullUrl": "urn:uuid:loc-hbot-monoplaza",
       "resource": {
         "resourceType": "Location",
         "id": "loc-hbot-monoplaza",
         "status": "active",
         "name": "Sala HBOT Monoplaza",
         "description": "Cámara HBOT monoplaza individual. Planta baja.",
-        "physicalType": { "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/location-physical-type", "code": "ro", "display": "Room" }] },
-        "managingOrganization": { "reference": "Organization/biowellness" },
+        "physicalType": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/location-physical-type",
+              "code": "ro",
+              "display": "Room"
+            }
+          ]
+        },
+        "managingOrganization": {
+          "reference": "Organization/biowellness"
+        },
         "extension": [
-          { "url": "https://biowellness.ar/fhir/StructureDefinition/iscca-planta", "valueCode": "planta-baja" }
+          {
+            "url": "https://biowellness.ar/fhir/StructureDefinition/iscca-planta",
+            "valueCode": "planta-baja"
+          }
         ]
       },
-      "request": { "method": "PUT", "url": "Location/loc-hbot-monoplaza" }
+      "request": {
+        "method": "PUT",
+        "url": "Location/loc-hbot-monoplaza"
+      }
     },
     {
-      "fullUrl": "urn:uuid:loc-hbot-multiplaza-a",
       "resource": {
         "resourceType": "Location",
         "id": "loc-hbot-multiplaza-a",
         "status": "active",
         "name": "Sala HBOT Multiplaza A (4 lugares)",
         "description": "Cámara HBOT multiplaza grande, 4 pacientes simultáneos. Planta baja.",
-        "physicalType": { "coding": [{ "code": "ro" }] },
-        "managingOrganization": { "reference": "Organization/biowellness" },
+        "physicalType": {
+          "coding": [
+            {
+              "code": "ro"
+            }
+          ]
+        },
+        "managingOrganization": {
+          "reference": "Organization/biowellness"
+        },
         "extension": [
-          { "url": "https://biowellness.ar/fhir/StructureDefinition/iscca-planta", "valueCode": "planta-baja" }
+          {
+            "url": "https://biowellness.ar/fhir/StructureDefinition/iscca-planta",
+            "valueCode": "planta-baja"
+          }
         ]
       },
-      "request": { "method": "PUT", "url": "Location/loc-hbot-multiplaza-a" }
+      "request": {
+        "method": "PUT",
+        "url": "Location/loc-hbot-multiplaza-a"
+      }
     },
     {
-      "fullUrl": "urn:uuid:loc-hbot-multiplaza-b",
       "resource": {
         "resourceType": "Location",
         "id": "loc-hbot-multiplaza-b",
         "status": "active",
         "name": "Sala HBOT Multiplaza B (2 lugares)",
-        "physicalType": { "coding": [{ "code": "ro" }] },
-        "managingOrganization": { "reference": "Organization/biowellness" },
+        "physicalType": {
+          "coding": [
+            {
+              "code": "ro"
+            }
+          ]
+        },
+        "managingOrganization": {
+          "reference": "Organization/biowellness"
+        },
         "extension": [
-          { "url": "https://biowellness.ar/fhir/StructureDefinition/iscca-planta", "valueCode": "planta-baja" }
+          {
+            "url": "https://biowellness.ar/fhir/StructureDefinition/iscca-planta",
+            "valueCode": "planta-baja"
+          }
         ]
       },
-      "request": { "method": "PUT", "url": "Location/loc-hbot-multiplaza-b" }
+      "request": {
+        "method": "PUT",
+        "url": "Location/loc-hbot-multiplaza-b"
+      }
     },
     {
-      "fullUrl": "urn:uuid:loc-ihht-1",
       "resource": {
         "resourceType": "Location",
         "id": "loc-ihht-1",
         "status": "active",
         "name": "Sala IHHT 1",
         "description": "Equipo Longfian Jay 20H #1. Planta baja.",
-        "physicalType": { "coding": [{ "code": "ro" }] },
-        "managingOrganization": { "reference": "Organization/biowellness" }
+        "physicalType": {
+          "coding": [
+            {
+              "code": "ro"
+            }
+          ]
+        },
+        "managingOrganization": {
+          "reference": "Organization/biowellness"
+        }
       },
-      "request": { "method": "PUT", "url": "Location/loc-ihht-1" }
+      "request": {
+        "method": "PUT",
+        "url": "Location/loc-ihht-1"
+      }
     },
     {
-      "fullUrl": "urn:uuid:loc-ihht-2",
       "resource": {
         "resourceType": "Location",
         "id": "loc-ihht-2",
         "status": "active",
         "name": "Sala IHHT 2",
-        "physicalType": { "coding": [{ "code": "ro" }] },
-        "managingOrganization": { "reference": "Organization/biowellness" }
+        "physicalType": {
+          "coding": [
+            {
+              "code": "ro"
+            }
+          ]
+        },
+        "managingOrganization": {
+          "reference": "Organization/biowellness"
+        }
       },
-      "request": { "method": "PUT", "url": "Location/loc-ihht-2" }
+      "request": {
+        "method": "PUT",
+        "url": "Location/loc-ihht-2"
+      }
     },
     {
-      "fullUrl": "urn:uuid:loc-recovery-pro-1",
       "resource": {
         "resourceType": "Location",
         "id": "loc-recovery-pro-1",
         "status": "active",
         "name": "Recovery Pro Gabinete 1",
         "description": "Gabinete con circuito sauna finlandesa + cold plunge + red light. Planta baja.",
-        "physicalType": { "coding": [{ "code": "ro" }] },
-        "managingOrganization": { "reference": "Organization/biowellness" }
+        "physicalType": {
+          "coding": [
+            {
+              "code": "ro"
+            }
+          ]
+        },
+        "managingOrganization": {
+          "reference": "Organization/biowellness"
+        }
       },
-      "request": { "method": "PUT", "url": "Location/loc-recovery-pro-1" }
+      "request": {
+        "method": "PUT",
+        "url": "Location/loc-recovery-pro-1"
+      }
     },
     {
-      "fullUrl": "urn:uuid:loc-recovery-pro-2",
       "resource": {
         "resourceType": "Location",
         "id": "loc-recovery-pro-2",
         "status": "active",
         "name": "Recovery Pro Gabinete 2",
-        "physicalType": { "coding": [{ "code": "ro" }] },
-        "managingOrganization": { "reference": "Organization/biowellness" }
+        "physicalType": {
+          "coding": [
+            {
+              "code": "ro"
+            }
+          ]
+        },
+        "managingOrganization": {
+          "reference": "Organization/biowellness"
+        }
       },
-      "request": { "method": "PUT", "url": "Location/loc-recovery-pro-2" }
+      "request": {
+        "method": "PUT",
+        "url": "Location/loc-recovery-pro-2"
+      }
     },
     {
-      "fullUrl": "urn:uuid:loc-infusion",
       "resource": {
         "resourceType": "Location",
         "id": "loc-infusion",
         "status": "active",
         "name": "Sala de Infusión IV",
         "description": "Sala con 3 puestos (sillón + pie de suero). Entrepiso.",
-        "physicalType": { "coding": [{ "code": "ro" }] },
-        "managingOrganization": { "reference": "Organization/biowellness" },
+        "physicalType": {
+          "coding": [
+            {
+              "code": "ro"
+            }
+          ]
+        },
+        "managingOrganization": {
+          "reference": "Organization/biowellness"
+        },
         "extension": [
-          { "url": "https://biowellness.ar/fhir/StructureDefinition/iscca-planta", "valueCode": "entrepiso" },
-          { "url": "https://biowellness.ar/fhir/StructureDefinition/iscca-capacidad-simultanea", "valueInteger": 3 }
+          {
+            "url": "https://biowellness.ar/fhir/StructureDefinition/iscca-planta",
+            "valueCode": "entrepiso"
+          },
+          {
+            "url": "https://biowellness.ar/fhir/StructureDefinition/iscca-capacidad-simultanea",
+            "valueInteger": 3
+          }
         ]
       },
-      "request": { "method": "PUT", "url": "Location/loc-infusion" }
+      "request": {
+        "method": "PUT",
+        "url": "Location/loc-infusion"
+      }
     },
     {
-      "fullUrl": "urn:uuid:loc-recuperacion-1",
       "resource": {
         "resourceType": "Location",
         "id": "loc-recuperacion-1",
         "status": "active",
         "name": "Camilla Recuperación 1 (botas + crio)",
         "description": "Camilla con botas de compresión secuencial + crioterapia integrada. Entrepiso.",
-        "physicalType": { "coding": [{ "code": "bd", "display": "Bed" }] },
-        "managingOrganization": { "reference": "Organization/biowellness" }
+        "physicalType": {
+          "coding": [
+            {
+              "code": "bd",
+              "display": "Bed"
+            }
+          ]
+        },
+        "managingOrganization": {
+          "reference": "Organization/biowellness"
+        }
       },
-      "request": { "method": "PUT", "url": "Location/loc-recuperacion-1" }
+      "request": {
+        "method": "PUT",
+        "url": "Location/loc-recuperacion-1"
+      }
     },
     {
-      "fullUrl": "urn:uuid:loc-recuperacion-2",
       "resource": {
         "resourceType": "Location",
         "id": "loc-recuperacion-2",
         "status": "active",
         "name": "Camilla Recuperación 2 (botas + crio)",
-        "physicalType": { "coding": [{ "code": "bd" }] },
-        "managingOrganization": { "reference": "Organization/biowellness" }
+        "physicalType": {
+          "coding": [
+            {
+              "code": "bd"
+            }
+          ]
+        },
+        "managingOrganization": {
+          "reference": "Organization/biowellness"
+        }
       },
-      "request": { "method": "PUT", "url": "Location/loc-recuperacion-2" }
+      "request": {
+        "method": "PUT",
+        "url": "Location/loc-recuperacion-2"
+      }
     },
     {
-      "fullUrl": "urn:uuid:loc-osteopatia",
       "resource": {
         "resourceType": "Location",
         "id": "loc-osteopatia",
         "status": "active",
         "name": "Sala de Osteopatía",
         "description": "Espacio dedicado para osteopatía (Nikita). Entrepiso.",
-        "physicalType": { "coding": [{ "code": "ro" }] },
-        "managingOrganization": { "reference": "Organization/biowellness" }
+        "physicalType": {
+          "coding": [
+            {
+              "code": "ro"
+            }
+          ]
+        },
+        "managingOrganization": {
+          "reference": "Organization/biowellness"
+        }
       },
-      "request": { "method": "PUT", "url": "Location/loc-osteopatia" }
+      "request": {
+        "method": "PUT",
+        "url": "Location/loc-osteopatia"
+      }
     },
     {
-      "fullUrl": "urn:uuid:loc-red-light",
       "resource": {
         "resourceType": "Location",
         "id": "loc-red-light",
         "status": "active",
         "name": "Sala Red Light Independiente",
         "description": "Sala de fotobiomodulación red light/NIR independiente del circuito Recovery Pro. Entrepiso. Para sesiones de Red Light dedicadas (parte del combo BIO ENERGY).",
-        "physicalType": { "coding": [{ "code": "ro" }] },
-        "managingOrganization": { "reference": "Organization/biowellness" }
+        "physicalType": {
+          "coding": [
+            {
+              "code": "ro"
+            }
+          ]
+        },
+        "managingOrganization": {
+          "reference": "Organization/biowellness"
+        }
       },
-      "request": { "method": "PUT", "url": "Location/loc-red-light" }
+      "request": {
+        "method": "PUT",
+        "url": "Location/loc-red-light"
+      }
     },
     {
-      "fullUrl": "urn:uuid:loc-consultorio-director",
       "resource": {
         "resourceType": "Location",
         "id": "loc-consultorio-director",
         "status": "active",
         "name": "Consultorio Director Médico",
         "description": "Consultorio del Dr. Conrado López Alonso.",
-        "physicalType": { "coding": [{ "code": "ro" }] },
-        "managingOrganization": { "reference": "Organization/biowellness" }
+        "physicalType": {
+          "coding": [
+            {
+              "code": "ro"
+            }
+          ]
+        },
+        "managingOrganization": {
+          "reference": "Organization/biowellness"
+        }
       },
-      "request": { "method": "PUT", "url": "Location/loc-consultorio-director" }
+      "request": {
+        "method": "PUT",
+        "url": "Location/loc-consultorio-director"
+      }
     },
     {
-      "fullUrl": "urn:uuid:loc-consultorio-1",
       "resource": {
         "resourceType": "Location",
         "id": "loc-consultorio-1",
         "status": "active",
         "name": "Consultorio Médico 1",
-        "physicalType": { "coding": [{ "code": "ro" }] },
-        "managingOrganization": { "reference": "Organization/biowellness" }
+        "physicalType": {
+          "coding": [
+            {
+              "code": "ro"
+            }
+          ]
+        },
+        "managingOrganization": {
+          "reference": "Organization/biowellness"
+        }
       },
-      "request": { "method": "PUT", "url": "Location/loc-consultorio-1" }
+      "request": {
+        "method": "PUT",
+        "url": "Location/loc-consultorio-1"
+      }
     },
     {
-      "fullUrl": "urn:uuid:loc-consultorio-2",
       "resource": {
         "resourceType": "Location",
         "id": "loc-consultorio-2",
         "status": "active",
         "name": "Consultorio Médico 2",
-        "physicalType": { "coding": [{ "code": "ro" }] },
-        "managingOrganization": { "reference": "Organization/biowellness" }
+        "physicalType": {
+          "coding": [
+            {
+              "code": "ro"
+            }
+          ]
+        },
+        "managingOrganization": {
+          "reference": "Organization/biowellness"
+        }
       },
-      "request": { "method": "PUT", "url": "Location/loc-consultorio-2" }
+      "request": {
+        "method": "PUT",
+        "url": "Location/loc-consultorio-2"
+      }
     }
   ]
 }

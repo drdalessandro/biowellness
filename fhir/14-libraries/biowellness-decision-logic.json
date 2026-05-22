@@ -16,12 +16,26 @@
   "date": "2026-05-19",
   "publisher": "BIOWELLNESS Argentina",
   "contact": [
-    { "telecom": [{ "system": "email", "value": "fhir@biowellness.ar" }] }
+    {
+      "telecom": [
+        {
+          "system": "email",
+          "value": "fhir@biowellness.ar"
+        }
+      ]
+    }
   ],
   "description": "Library polyglot v0.3.0. CAMBIOS vs 0.2.0: (1) Thresholds clínicos más estrictos alineados con estándar premium ABC1 — hs-CRP <0.5, HOMA-IR <1.5, glucosa <85, HbA1c <5.2%. (2) Nuevos gates de seguridad pre-procedimiento: pre-ihht-seguro, pre-contraste-seguro. (3) Nueva expression evaluacion-medica-vigente para terapias biológicas (ADR-031). (4) Helpers nuevos para biomarkers HbA1c, Lp(a), homocisteína, IGF-1, DHEA-S. (5) Calibración pendiente por equipo médico (Conrado + Stephanie + Alejandro) sem 1-3, no por Lapeire (ADR-030).",
   "purpose": "Centralizar lógica clínica para gates declarativos + scoring de fenotipo, versionable y testeable independientemente de PlanDefinitions y Bots.",
   "jurisdiction": [
-    { "coding": [{ "system": "urn:iso:std:iso:3166", "code": "AR" }] }
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "AR"
+        }
+      ]
+    }
   ],
   "type": {
     "coding": [
@@ -42,61 +56,61 @@
       "id": "expr-hba1c-recent",
       "contentType": "text/fhirpath",
       "title": "hba1c-recent",
-      "data": "PLACEHOLDER-BASE64-hba1c"
+      "data": "JWNvbnRleHQub2JzZXJ2YXRpb24ud2hlcmUoY29kZS5jb2RpbmcuZXhpc3RzKHN5c3RlbSA9ICdodHRwOi8vbG9pbmMub3JnJyBhbmQgY29kZSA9ICc0NTQ4LTQnKSkud2hlcmUoZWZmZWN0aXZlRGF0ZVRpbWUgPiB0b2RheSgpIC0gOTAgZGF5cykuc29ydChlZmZlY3RpdmVEYXRlVGltZSBkZXNjZW5kaW5nKS5maXJzdCgpLnZhbHVlUXVhbnRpdHkudmFsdWU="
     },
     {
       "id": "expr-lpa-recent",
       "contentType": "text/fhirpath",
       "title": "lpa-recent",
-      "data": "PLACEHOLDER-BASE64-lpa"
+      "data": "JWNvbnRleHQub2JzZXJ2YXRpb24ud2hlcmUoY29kZS5jb2RpbmcuZXhpc3RzKHN5c3RlbSA9ICdodHRwOi8vbG9pbmMub3JnJyBhbmQgY29kZSA9ICcxMDgzNS03JykpLnNvcnQoZWZmZWN0aXZlRGF0ZVRpbWUgZGVzY2VuZGluZykuZmlyc3QoKS52YWx1ZVF1YW50aXR5LnZhbHVl"
     },
     {
       "id": "expr-igf1-recent",
       "contentType": "text/fhirpath",
       "title": "igf1-recent",
-      "data": "PLACEHOLDER-BASE64-igf1"
+      "data": "JWNvbnRleHQub2JzZXJ2YXRpb24ud2hlcmUoY29kZS5jb2RpbmcuZXhpc3RzKHN5c3RlbSA9ICdodHRwOi8vbG9pbmMub3JnJyBhbmQgY29kZSA9ICcyNDg0LTQnKSkud2hlcmUoZWZmZWN0aXZlRGF0ZVRpbWUgPiB0b2RheSgpIC0gMTgwIGRheXMpLnNvcnQoZWZmZWN0aXZlRGF0ZVRpbWUgZGVzY2VuZGluZykuZmlyc3QoKS52YWx1ZVF1YW50aXR5LnZhbHVl"
     },
     {
       "id": "expr-dheas-recent",
       "contentType": "text/fhirpath",
       "title": "dheas-recent",
-      "data": "PLACEHOLDER-BASE64-dheas"
+      "data": "JWNvbnRleHQub2JzZXJ2YXRpb24ud2hlcmUoY29kZS5jb2RpbmcuZXhpc3RzKHN5c3RlbSA9ICdodHRwOi8vbG9pbmMub3JnJyBhbmQgY29kZSA9ICcyMTkxLTUnKSkud2hlcmUoZWZmZWN0aXZlRGF0ZVRpbWUgPiB0b2RheSgpIC0gMTgwIGRheXMpLnNvcnQoZWZmZWN0aXZlRGF0ZVRpbWUgZGVzY2VuZGluZykuZmlyc3QoKS52YWx1ZVF1YW50aXR5LnZhbHVl"
     },
     {
       "id": "expr-homocisteina-recent",
       "contentType": "text/fhirpath",
       "title": "homocisteina-recent",
-      "data": "PLACEHOLDER-BASE64-homocisteina"
+      "data": "JWNvbnRleHQub2JzZXJ2YXRpb24ud2hlcmUoY29kZS5jb2RpbmcuZXhpc3RzKHN5c3RlbSA9ICdodHRwOi8vbG9pbmMub3JnJyBhbmQgY29kZSA9ICcxMzk2NS05JykpLndoZXJlKGVmZmVjdGl2ZURhdGVUaW1lID4gdG9kYXkoKSAtIDkwIGRheXMpLnNvcnQoZWZmZWN0aXZlRGF0ZVRpbWUgZGVzY2VuZGluZykuZmlyc3QoKS52YWx1ZVF1YW50aXR5LnZhbHVl"
     },
     {
       "id": "expr-gate-preparatoria-cumplido-v3",
       "contentType": "text/fhirpath",
       "title": "gate-preparatoria-cumplido (v0.3.0: hs-CRP < 0.5)",
-      "data": "PLACEHOLDER-BASE64-gate-prep-v3"
+      "data": "LS0gVE9ETzogaW1wbGVtZW50IGdhdGUtcHJlcGFyYXRvcmlhLWN1bXBsaWRvICh2MC4zLjA6IGhzLUNSUCA8IDAuNSk="
     },
     {
       "id": "expr-gate-optimizacion-cumplido-v3",
       "contentType": "text/fhirpath",
       "title": "gate-optimizacion-cumplido (v0.3.0: HOMA-IR < 1.5)",
-      "data": "PLACEHOLDER-BASE64-gate-opt-v3"
+      "data": "LS0gVE9ETzogaW1wbGVtZW50IGdhdGUtb3B0aW1pemFjaW9uLWN1bXBsaWRvICh2MC4zLjA6IEhPTUEtSVIgPCAxLjUp"
     },
     {
       "id": "expr-pre-ihht-seguro",
       "contentType": "text/fhirpath",
       "title": "pre-ihht-seguro",
-      "data": "PLACEHOLDER-BASE64-pre-ihht"
+      "data": "LS0gVE9ETzogaW1wbGVtZW50IHByZS1paGh0LXNlZ3Vybw=="
     },
     {
       "id": "expr-pre-contraste-seguro",
       "contentType": "text/fhirpath",
       "title": "pre-contraste-seguro",
-      "data": "PLACEHOLDER-BASE64-pre-contraste"
+      "data": "LS0gVE9ETzogaW1wbGVtZW50IHByZS1jb250cmFzdGUtc2VndXJv"
     },
     {
       "id": "expr-evaluacion-medica-vigente",
       "contentType": "text/fhirpath",
       "title": "evaluacion-medica-vigente (ADR-031: 30 días validez)",
-      "data": "PLACEHOLDER-BASE64-eval-med-vigente"
+      "data": "LS0gVE9ETzogaW1wbGVtZW50IGV2YWx1YWNpb24tbWVkaWNhLXZpZ2VudGUgKEFEUi0wMzE6IDMwIGTDrWFzIHZhbGlkZXop"
     },
     {
       "id": "expr-consent-master-active",

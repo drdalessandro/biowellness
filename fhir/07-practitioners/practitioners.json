@@ -1,10 +1,8 @@
 {
   "resourceType": "Bundle",
-  "id": "biowellness-practitioners",
   "type": "transaction",
   "entry": [
     {
-      "fullUrl": "urn:uuid:bw-pra-001",
       "resource": {
         "resourceType": "Practitioner",
         "id": "BW-PRA-001",
@@ -23,8 +21,12 @@
           {
             "use": "official",
             "family": "López Alonso",
-            "given": ["Conrado"],
-            "prefix": ["Dr."]
+            "given": [
+              "Conrado"
+            ],
+            "prefix": [
+              "Dr."
+            ]
           }
         ],
         "telecom": [
@@ -47,141 +49,226 @@
           }
         ]
       },
-      "request": { "method": "PUT", "url": "Practitioner/BW-PRA-001" }
+      "request": {
+        "method": "PUT",
+        "url": "Practitioner/BW-PRA-001"
+      }
     },
     {
-      "fullUrl": "urn:uuid:bw-pra-002",
       "resource": {
         "resourceType": "Practitioner",
         "id": "BW-PRA-002",
         "identifier": [
-          { "system": "https://biowellness.ar/fhir/identifier/practitioner", "value": "BW-PRA-002" },
-          { "system": "https://www.argentina.gob.ar/identifier/matricula-nacional", "value": "TODO-MN-STEPHANIE" }
+          {
+            "system": "https://biowellness.ar/fhir/identifier/practitioner",
+            "value": "BW-PRA-002"
+          },
+          {
+            "system": "https://www.argentina.gob.ar/identifier/matricula-nacional",
+            "value": "TODO-MN-STEPHANIE"
+          }
         ],
         "active": true,
         "name": [
           {
             "use": "official",
             "family": "Dos Santos",
-            "given": ["Stephanie"],
-            "prefix": ["Dra."]
+            "given": [
+              "Stephanie"
+            ],
+            "prefix": [
+              "Dra."
+            ]
           }
         ],
-        "telecom": [{ "system": "email", "value": "stephanie@biowellness.ar" }],
+        "telecom": [
+          {
+            "system": "email",
+            "value": "stephanie@biowellness.ar"
+          }
+        ],
         "qualification": [
           {
             "code": {
               "coding": [
-                { "system": "http://terminology.hl7.org/CodeSystem/v2-0360", "code": "MD" }
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0360",
+                  "code": "MD"
+                }
               ]
             }
           }
         ]
       },
-      "request": { "method": "PUT", "url": "Practitioner/BW-PRA-002" }
+      "request": {
+        "method": "PUT",
+        "url": "Practitioner/BW-PRA-002"
+      }
     },
     {
-      "fullUrl": "urn:uuid:bw-pra-003",
       "resource": {
         "resourceType": "Practitioner",
         "id": "BW-PRA-003",
         "identifier": [
-          { "system": "https://biowellness.ar/fhir/identifier/practitioner", "value": "BW-PRA-003" },
-          { "system": "https://www.argentina.gob.ar/identifier/matricula-nacional", "value": "TODO-MN-ALEJANDRO" }
+          {
+            "system": "https://biowellness.ar/fhir/identifier/practitioner",
+            "value": "BW-PRA-003"
+          },
+          {
+            "system": "https://www.argentina.gob.ar/identifier/matricula-nacional",
+            "value": "TODO-MN-ALEJANDRO"
+          }
         ],
         "active": true,
         "name": [
           {
             "use": "official",
             "family": "D'Alessandro",
-            "given": ["Alejandro", "Sergio"],
-            "prefix": ["Dr."]
+            "given": [
+              "Alejandro",
+              "Sergio"
+            ],
+            "prefix": [
+              "Dr."
+            ]
           }
         ],
-        "telecom": [{ "system": "email", "value": "alejandro@biowellness.ar" }],
+        "telecom": [
+          {
+            "system": "email",
+            "value": "alejandro@biowellness.ar"
+          }
+        ],
         "qualification": [
           {
             "code": {
               "coding": [
-                { "system": "http://terminology.hl7.org/CodeSystem/v2-0360", "code": "MD" }
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0360",
+                  "code": "MD"
+                }
               ]
             }
           }
         ]
       },
-      "request": { "method": "PUT", "url": "Practitioner/BW-PRA-003" }
+      "request": {
+        "method": "PUT",
+        "url": "Practitioner/BW-PRA-003"
+      }
     },
     {
-      "fullUrl": "urn:uuid:bw-pra-004",
       "resource": {
         "resourceType": "Practitioner",
         "id": "BW-PRA-004",
         "identifier": [
-          { "system": "https://biowellness.ar/fhir/identifier/practitioner", "value": "BW-PRA-004" }
+          {
+            "system": "https://biowellness.ar/fhir/identifier/practitioner",
+            "value": "BW-PRA-004"
+          }
         ],
         "active": true,
         "name": [
           {
             "use": "official",
             "family": "Varela",
-            "given": ["Evangelina"]
+            "given": [
+              "Evangelina"
+            ]
           }
         ],
-        "telecom": [{ "system": "email", "value": "evangelina@biowellness.ar" }]
+        "telecom": [
+          {
+            "system": "email",
+            "value": "evangelina@biowellness.ar"
+          }
+        ]
       },
-      "request": { "method": "PUT", "url": "Practitioner/BW-PRA-004" }
+      "request": {
+        "method": "PUT",
+        "url": "Practitioner/BW-PRA-004"
+      }
     },
     {
-      "fullUrl": "urn:uuid:bw-pra-005",
       "resource": {
         "resourceType": "Practitioner",
         "id": "BW-PRA-005",
         "identifier": [
-          { "system": "https://biowellness.ar/fhir/identifier/practitioner", "value": "BW-PRA-005" }
+          {
+            "system": "https://biowellness.ar/fhir/identifier/practitioner",
+            "value": "BW-PRA-005"
+          }
         ],
         "active": true,
         "name": [
           {
             "use": "official",
             "family": "Boltruchek",
-            "given": ["Nikita"]
+            "given": [
+              "Nikita"
+            ]
           }
         ],
         "telecom": [
-          { "system": "email", "value": "nikita@biowellness.ar" },
-          { "system": "url", "value": "https://www.linkedin.com/in/nikita-boltruchek-a4063571/" }
+          {
+            "system": "email",
+            "value": "nikita@biowellness.ar"
+          },
+          {
+            "system": "url",
+            "value": "https://www.linkedin.com/in/nikita-boltruchek-a4063571/"
+          }
         ]
       },
-      "request": { "method": "PUT", "url": "Practitioner/BW-PRA-005" }
+      "request": {
+        "method": "PUT",
+        "url": "Practitioner/BW-PRA-005"
+      }
     },
     {
-      "fullUrl": "urn:uuid:bw-pra-006",
       "resource": {
         "resourceType": "Practitioner",
         "id": "BW-PRA-006",
         "identifier": [
-          { "system": "https://biowellness.ar/fhir/identifier/practitioner", "value": "BW-PRA-006" }
+          {
+            "system": "https://biowellness.ar/fhir/identifier/practitioner",
+            "value": "BW-PRA-006"
+          }
         ],
         "active": true,
         "name": [
           {
             "use": "official",
             "family": "Sívori",
-            "given": ["Diego"],
-            "prefix": ["Lic."]
+            "given": [
+              "Diego"
+            ],
+            "prefix": [
+              "Lic."
+            ]
           }
         ],
-        "telecom": [{ "system": "email", "value": "diego@biowellness.ar" }]
+        "telecom": [
+          {
+            "system": "email",
+            "value": "diego@biowellness.ar"
+          }
+        ]
       },
-      "request": { "method": "PUT", "url": "Practitioner/BW-PRA-006" }
+      "request": {
+        "method": "PUT",
+        "url": "Practitioner/BW-PRA-006"
+      }
     },
     {
-      "fullUrl": "urn:uuid:bw-pra-007",
       "resource": {
         "resourceType": "Practitioner",
         "id": "BW-PRA-007",
         "identifier": [
-          { "system": "https://biowellness.ar/fhir/identifier/practitioner", "value": "BW-PRA-007" }
+          {
+            "system": "https://biowellness.ar/fhir/identifier/practitioner",
+            "value": "BW-PRA-007"
+          }
         ],
         "active": true,
         "name": [
@@ -191,15 +278,20 @@
           }
         ]
       },
-      "request": { "method": "PUT", "url": "Practitioner/BW-PRA-007" }
+      "request": {
+        "method": "PUT",
+        "url": "Practitioner/BW-PRA-007"
+      }
     },
     {
-      "fullUrl": "urn:uuid:bw-pra-008",
       "resource": {
         "resourceType": "Practitioner",
         "id": "BW-PRA-008",
         "identifier": [
-          { "system": "https://biowellness.ar/fhir/identifier/practitioner", "value": "BW-PRA-008" }
+          {
+            "system": "https://biowellness.ar/fhir/identifier/practitioner",
+            "value": "BW-PRA-008"
+          }
         ],
         "active": true,
         "name": [
@@ -209,7 +301,10 @@
           }
         ]
       },
-      "request": { "method": "PUT", "url": "Practitioner/BW-PRA-008" }
+      "request": {
+        "method": "PUT",
+        "url": "Practitioner/BW-PRA-008"
+      }
     }
   ]
 }
