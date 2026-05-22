@@ -1,0 +1,15 @@
+{
+  "name": "@biowellness/bot-lab-ingestion",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "build": "esbuild src/index.ts --bundle --platform=node --target=node20 --format=cjs --outfile=dist/index.cjs",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@medplum/core": "^4.0.0",
+    "@medplum/fhirtypes": "^4.0.0",
+    "esbuild": "^0.20.0",
+    "vitest": "^1.4.0"
+  }
+}

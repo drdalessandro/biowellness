@@ -1,13 +1,12 @@
 {
   "resourceType": "Bot",
   "id": "lab-ingestion",
-  "identifier": [
-    {
-      "system": "https://biowellness.ar/fhir/identifier/bot",
-      "value": "BW-BOT-003"
-    }
-  ],
+  "identifier": [{ "system": "https://biowellness.ar/fhir/identifier/bot", "value": "BW-BOT-003" }],
   "name": "lab-ingestion",
-  "description": "Ingesta resultados de lab via QuestionnaireResponse, PDF OCR, o Bundle wearable. Genera Observations linked a ObservationDefinitions con qualifiedInterval evaluation.",
-  "runtimeVersion": "awslambda"
+  "description": "Convierte QuestionnaireResponse de carga de laboratorio en Observations + DiagnosticReport + Task crítico. Fuente agnóstica (chart médico MVP / portal paciente V2).",
+  "runtimeVersion": "awslambda",
+  "sourceCode": {
+    "contentType": "text/typescript",
+    "url": "src/index.ts"
+  }
 }
