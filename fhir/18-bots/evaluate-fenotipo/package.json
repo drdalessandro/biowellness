@@ -1,0 +1,16 @@
+{
+  "name": "@biowellness/bot-evaluate-fenotipo",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "build": "esbuild src/index.ts --bundle --platform=node --target=node20 --format=esm --outfile=dist/index.mjs --external:@medplum/core --external:@medplum/fhirtypes",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@medplum/core": "^4.0.0",
+    "@medplum/fhirtypes": "^4.0.0",
+    "@medplum/mock": "^4.0.0",
+    "esbuild": "^0.20.0",
+    "vitest": "^1.4.0"
+  }
+}

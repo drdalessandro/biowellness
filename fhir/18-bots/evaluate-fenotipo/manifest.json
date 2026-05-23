@@ -1,13 +1,12 @@
 {
   "resourceType": "Bot",
   "id": "evaluate-fenotipo",
-  "identifier": [
-    {
-      "system": "https://biowellness.ar/fhir/identifier/bot",
-      "value": "BW-BOT-002"
-    }
-  ],
+  "identifier": [{ "system": "https://biowellness.ar/fhir/identifier/bot", "value": "BW-BOT-002" }],
   "name": "evaluate-fenotipo",
-  "description": "Implementa OperationDefinition $evaluate-fenotipo. 3 capas: rules (Layer 1) + LLM (Layer 2 condicional) + Task humano (Layer 3).",
-  "runtimeVersion": "awslambda"
+  "description": "Asigna perfil clínico dominante (3 capas: rules + LLM stub + Task confirmación médica). Consume shared/decision-logic. Invocado vía Operation $evaluate-fenotipo.",
+  "runtimeVersion": "awslambda",
+  "sourceCode": {
+    "contentType": "text/typescript",
+    "url": "src/index.ts"
+  }
 }
