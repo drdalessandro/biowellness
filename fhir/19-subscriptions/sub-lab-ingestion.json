@@ -1,0 +1,10 @@
+{
+  "resourceType": "Subscription",
+  "status": "active",
+  "reason": "Trigger lab-ingestion Bot on lab panel submission",
+  "criteria": "QuestionnaireResponse?questionnaire=https://biowellness.ar/fhir/Questionnaire/q-lab-panel-basico",
+  "channel": {
+    "type": "rest-hook",
+    "endpoint": "Bot/84dd5b2d-3f4d-4cc3-888e-eaf606e369a9"
+  }
+}

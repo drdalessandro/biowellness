@@ -3,7 +3,7 @@
   "questionnaire": "https://biowellness.ar/fhir/Questionnaire/q-lab-panel-basico",
   "status": "completed",
   "subject": {
-    "reference": "Patient/REEMPLAZAR-CON-PATIENT-ID-REAL",
+    "reference": "Patient/cc0650b6-acc3-4026-9d2c-b4b3de3f6d22",
     "display": "Paciente de prueba"
   },
   "authored": "2026-05-22T10:00:00-03:00",
