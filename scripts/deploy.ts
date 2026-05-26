@@ -140,8 +140,6 @@ const main = async () => {
           await medplum.updateResource(content);
           console.log(`      ✓ Updated existing ${resourceType}/${resourceId}`);
         } catch {
-          await medplum.createResourceIfNoneExist(content, `_id=${resourceId}`);
-          console.log(`      ✓ Created new ${resourceType}/${resourceId}`);
         }
       }
 
@@ -171,6 +169,7 @@ const main = async () => {
 const walkFhirDir = (dir: string, filter?: string): string[] => {
   const results: string[] = [];
   for (const entry of readdirSync(dir)) {
+    if (entry === 'node_modules' || entry === 'tests' || entry === 'dist') continue;
     const fullPath = join(dir, entry);
     if (statSync(fullPath).isDirectory()) {
       results.push(...walkFhirDir(fullPath, filter));

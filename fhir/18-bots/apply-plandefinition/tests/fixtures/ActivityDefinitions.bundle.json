@@ -1,0 +1,110 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "https://fhir.biowellness.health/core/ActivityDefinition/ad-baseline-lab",
+      "request": {
+        "method": "PUT",
+        "url": "ActivityDefinition?url=https://fhir.biowellness.health/core/ActivityDefinition/ad-baseline-lab"
+      },
+      "resource": {
+        "resourceType": "ActivityDefinition",
+        "url": "https://fhir.biowellness.health/core/ActivityDefinition/ad-baseline-lab",
+        "version": "1.0.0",
+        "name": "ad-baseline-lab",
+        "title": "Panel basal metabólico-energético",
+        "status": "active",
+        "kind": "ServiceRequest",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "24323-8",
+              "display": "Comprehensive metabolic panel"
+            }
+          ],
+          "text": "Panel metabólico-energético basal"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://fhir.biowellness.health/core/ActivityDefinition/ad-iv-boost",
+      "request": {
+        "method": "PUT",
+        "url": "ActivityDefinition?url=https://fhir.biowellness.health/core/ActivityDefinition/ad-iv-boost"
+      },
+      "resource": {
+        "resourceType": "ActivityDefinition",
+        "url": "https://fhir.biowellness.health/core/ActivityDefinition/ad-iv-boost",
+        "version": "1.0.0",
+        "name": "ad-iv-boost",
+        "title": "Protocolo IV Boost",
+        "status": "active",
+        "kind": "MedicationRequest",
+        "productCodeableConcept": {
+          "text": "Solución IV energética (complejo B + magnesio + aminoácidos)"
+        },
+        "dosage": [
+          {
+            "text": "Infusión IV única, 250 mL en 45 min",
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "47625008",
+                  "display": "Intravenous route"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://fhir.biowellness.health/core/ActivityDefinition/ad-followup-task",
+      "request": {
+        "method": "PUT",
+        "url": "ActivityDefinition?url=https://fhir.biowellness.health/core/ActivityDefinition/ad-followup-task"
+      },
+      "resource": {
+        "resourceType": "ActivityDefinition",
+        "url": "https://fhir.biowellness.health/core/ActivityDefinition/ad-followup-task",
+        "version": "1.0.0",
+        "name": "ad-followup-task",
+        "title": "Seguimiento de tolerancia post-IV",
+        "status": "active",
+        "kind": "Task",
+        "code": {
+          "text": "Llamado de seguimiento de tolerancia"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://fhir.biowellness.health/core/ActivityDefinition/ad-reassessment-appt",
+      "request": {
+        "method": "PUT",
+        "url": "ActivityDefinition?url=https://fhir.biowellness.health/core/ActivityDefinition/ad-reassessment-appt"
+      },
+      "resource": {
+        "resourceType": "ActivityDefinition",
+        "url": "https://fhir.biowellness.health/core/ActivityDefinition/ad-reassessment-appt",
+        "version": "1.0.0",
+        "name": "ad-reassessment-appt",
+        "title": "Cita de reevaluación 4 semanas",
+        "status": "active",
+        "kind": "Appointment",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "390906007",
+              "display": "Follow-up encounter"
+            }
+          ],
+          "text": "Reevaluación clínica a 4 semanas"
+        }
+      }
+    }
+  ]
+}

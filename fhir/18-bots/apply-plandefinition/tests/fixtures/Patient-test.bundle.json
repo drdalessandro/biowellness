@@ -1,0 +1,19 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:patient-test-bioenergy",
+      "request": { "method": "POST", "url": "Patient" },
+      "resource": {
+        "resourceType": "Patient",
+        "name": [ { "given": [ "Test" ], "family": "BioEnergy" } ],
+        "gender": "female",
+        "birthDate": "1985-06-15",
+        "identifier": [
+          { "system": "https://biowellness.ar/fhir/test", "value": "E2E-BIOENERGY-001" }
+        ]
+      }
+    }
+  ]
+}

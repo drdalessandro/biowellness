@@ -1,13 +1,12 @@
 {
   "resourceType": "Bot",
   "id": "apply-plandefinition",
-  "identifier": [
-    {
-      "system": "https://biowellness.ar/fhir/identifier/bot",
-      "value": "BW-BOT-001"
-    }
-  ],
+  "identifier": [{ "system": "https://biowellness.ar/fhir/identifier/bot", "value": "BW-BOT-005" }],
   "name": "apply-plandefinition",
-  "description": "Orquestador: recibe (PlanDefinition, Patient) y genera la cadena de 38-50 recursos derivados que materializa el journey.",
-  "runtimeVersion": "awslambda"
+  "description": "Orquestador. Toma un perfil clínico confirmado + un combo prescrito por el médico y materializa el journey completo (CarePlan + Tasks/Appointments/ServiceRequests/MedicationRequests + Provenance) en una transacción atómica. Médico-driven (ADR-026). Lee solo fenotipo-confirmado (status final).",
+  "runtimeVersion": "awslambda",
+  "sourceCode": {
+    "contentType": "text/typescript",
+    "url": "src/index.ts"
+  }
 }

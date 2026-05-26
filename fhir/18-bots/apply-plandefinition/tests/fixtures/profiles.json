@@ -1,0 +1,33 @@
+{
+  "_comment": "Confirmed-phenotype Observation payloads passed as ApplyPlanDefinitionInput.profile, matching what evaluate-fenotipo's confirmation step persists (fenotipo-confirmado, status final). Conditions read %profile.valueCodeableConcept.coding.code. bio-energy's IV Boost action gates on the profile being cardio-metabolico | longevidad-biohacking | deporte-running.",
+  "eligible": {
+    "resourceType": "Observation",
+    "status": "final",
+    "code": {
+      "coding": [
+        { "system": "https://biowellness.ar/fhir/CodeSystem/observation-type", "code": "fenotipo-confirmado" }
+      ]
+    },
+    "subject": { "reference": "Patient/test-bioenergy" },
+    "valueCodeableConcept": {
+      "coding": [
+        { "system": "https://biowellness.ar/fhir/CodeSystem/iscca-perfil-clinico", "code": "cardio-metabolico" }
+      ]
+    }
+  },
+  "notEligible": {
+    "resourceType": "Observation",
+    "status": "final",
+    "code": {
+      "coding": [
+        { "system": "https://biowellness.ar/fhir/CodeSystem/observation-type", "code": "fenotipo-confirmado" }
+      ]
+    },
+    "subject": { "reference": "Patient/test-bioenergy" },
+    "valueCodeableConcept": {
+      "coding": [
+        { "system": "https://biowellness.ar/fhir/CodeSystem/iscca-perfil-clinico", "code": "menopausia" }
+      ]
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "resourceType": "PlanDefinition",
+  "id": "pd-combo-bio-energy",
+  "url": "https://fhir.biowellness.health/core/PlanDefinition/pd-combo-bio-energy",
+  "version": "1.0.0",
+  "name": "pd-combo-bio-energy",
+  "title": "Combo Bio-Energy",
+  "status": "active",
+  "experimental": false,
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/plan-definition-type",
+        "code": "clinical-protocol",
+        "display": "Clinical Protocol"
+      }
+    ]
+  },
+  "description": "Journey de optimización energética: evaluación basal, protocolo IV, seguimiento y reevaluación a 4 semanas.",
+  "action": [
+    {
+      "id": "baseline-eval",
+      "title": "Evaluación basal y extracción de laboratorio",
+      "description": "Panel metabólico-energético basal (día 0).",
+      "definitionCanonical": "https://fhir.biowellness.health/core/ActivityDefinition/ad-baseline-lab",
+      "timingTiming": {
+        "repeat": { "boundsDuration": { "value": 0, "unit": "day", "system": "http://unitsofmeasure.org", "code": "d" } }
+      }
+    },
+    {
+      "id": "iv-boost-session",
+      "title": "Sesión IV Boost (Bio-Energy)",
+      "description": "Aplicación del protocolo IV energético una vez confirmada la elegibilidad.",
+      "definitionCanonical": "https://fhir.biowellness.health/core/ActivityDefinition/ad-iv-boost",
+      "condition": [
+        {
+          "kind": "applicability",
+          "expression": {
+            "language": "text/fhirpath",
+            "expression": "%profile.valueCodeableConcept.coding.where(system = 'https://biowellness.ar/fhir/CodeSystem/iscca-perfil-clinico' and code in ('cardio-metabolico' | 'longevidad-biohacking' | 'deporte-running')).exists()"
+          }
+        }
+      ],
+      "relatedAction": [
+        {
+          "actionId": "baseline-eval",
+          "relationship": "after",
+          "offsetDuration": { "value": 2, "unit": "day", "system": "http://unitsofmeasure.org", "code": "d" }
+        }
+      ]
+    },
+    {
+      "id": "followup-call",
+      "title": "Seguimiento telefónico de tolerancia",
+      "description": "Control de tolerancia y adherencia post-sesión.",
+      "definitionCanonical": "https://fhir.biowellness.health/core/ActivityDefinition/ad-followup-task",
+      "relatedAction": [
+        {
+          "actionId": "iv-boost-session",
+          "relationship": "after",
+          "offsetDuration": { "value": 3, "unit": "day", "system": "http://unitsofmeasure.org", "code": "d" }
+        }
+      ]
+    },
+    {
+      "id": "reassessment",
+      "title": "Reevaluación a 4 semanas",
+      "description": "Cita de reevaluación clínica y nuevo panel.",
+      "definitionCanonical": "https://fhir.biowellness.health/core/ActivityDefinition/ad-reassessment-appt",
+      "relatedAction": [
+        {
+          "actionId": "baseline-eval",
+          "relationship": "after",
+          "offsetDuration": { "value": 28, "unit": "day", "system": "http://unitsofmeasure.org", "code": "d" }
+        }
+      ]
+    }
+  ]
+}

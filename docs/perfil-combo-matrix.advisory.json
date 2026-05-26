@@ -1,0 +1,13 @@
+{
+  "_comment": "ADVISORY decision-support only. NOT auto-enforced by apply-plandefinition (model b: el médico elige el combo). Mapeos perfil->combo PENDIENTES DE VALIDACIÓN CLÍNICA por Conrado/Stephanie antes de uso en producción.",
+  "_status": "PENDING_CLINICAL_VALIDATION",
+  "system": "https://biowellness.ar/fhir/CodeSystem/iscca-perfil-clinico",
+  "matrix": [
+    { "perfil": "menopausia",            "combos": ["bio-balance", "bio-recovery"],   "racional": "Hormonal + sueño + composición corporal" },
+    { "perfil": "cardio-metabolico",     "combos": ["bio-energy", "bio-balance"],     "racional": "Metabólico + IHHT + HBOT" },
+    { "perfil": "longevidad-biohacking", "combos": ["bio-elite", "bio-energy"],       "racional": "El más completo + optimización" },
+    { "perfil": "estetica-regenerativa", "combos": ["bio-recovery", "bio-iv-boost"],  "racional": "Recovery Pro + IV terapias" },
+    { "perfil": "deporte-running",       "combos": ["bio-recovery", "bio-energy"],    "racional": "Recuperación + rendimiento" },
+    { "perfil": "generico",              "combos": [],                                "racional": "Sin combo automático — requiere evaluación médica" }
+  ]
+}
