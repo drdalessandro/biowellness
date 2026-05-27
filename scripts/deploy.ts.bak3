@@ -135,28 +135,11 @@ const main = async () => {
       } else {
         if (!resourceId) throw new Error(`Resource ${resourceType} sin campo 'id'`);
 
-        // Recursos canónicos (con .url) se deduplican por url: Medplum asigna su propio
-        // UUID, así que leer por el id del JSON nunca matchea y se crearían duplicados.
-        const canonicalUrl = (content as any).url as string | undefined;
-        if (canonicalUrl) {
-          const existing = await medplum.searchResources(resourceType as any, { url: canonicalUrl });
-          if (existing.length > 0) {
-            await medplum.updateResource({ ...content, id: existing[0].id });
-            const dup = existing.length > 1 ? ` (${existing.length} duplicados - limpiar)` : '';
-            console.log(`      ✓ Updated existing ${resourceType} (url=${canonicalUrl})${dup}`);
-          } else {
-            const created = await medplum.createResource(content);
-            console.log(`      ✓ Created new ${resourceType}/${created.id} (url=${canonicalUrl})`);
-          }
-        } else {
-          try {
-            await medplum.readResource(resourceType as any, resourceId);
-            await medplum.updateResource(content);
-            console.log(`      ✓ Updated existing ${resourceType}/${resourceId}`);
-          } catch {
-            await medplum.createResource(content);
-            console.log(`      ✓ Created new ${resourceType}/${resourceId}`);
-          }
+        try {
+          await medplum.readResource(resourceType, resourceId);
+          await medplum.updateResource(content);
+          console.log(`      ✓ Updated existing ${resourceType}/${resourceId}`);
+        } catch {
         }
       }
 
