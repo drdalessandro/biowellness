@@ -2,7 +2,7 @@
   "baseUrl": "https://api.medplum.com.ar/",
   "bots": [
     {
-      "id": "9385a247-50ef-4b82-98b0-952935d86393",
+      "id": "ef41ad93-fe21-41a3-9a70-37b98130f1e3",
       "name": "apply-plandefinition",
       "dist": "fhir/18-bots/apply-plandefinition/dist/index.mjs"
     }

@@ -1,5 +1,5 @@
 import { BotEvent, getReferenceString, MedplumClient } from '@medplum/core';
-import { Bundle, CarePlan } from '@medplum/fhirtypes';
+import { Bundle, CarePlan, Parameters, ParametersParameter, Reference } from '@medplum/fhirtypes';
 import {
   hasProvisionalOnly,
   patientReference,
@@ -11,7 +11,8 @@ import {
   resolveProfile,
 } from './helpers/resolvers';
 import { buildJourneyTransaction } from './helpers/transaction-builder';
-import { ApplyPlanDefinitionInput, JourneyContext } from './helpers/types';
+import { ApplyPlanDefinitionInput, AuthorReference, JourneyContext } from './helpers/types';
+import { loadClinicalContext, loadLibraryGates } from '../../shared/library-resolver';
 
 /**
  * apply-plandefinition — Fase 5 / Bot #3 (orquestador).
@@ -27,36 +28,39 @@ import { ApplyPlanDefinitionInput, JourneyContext } from './helpers/types';
  * one (Observation `fenotipo-confirmado`, status `final`); the orchestrator refuses to
  * act on a merely provisional profile (evaluate-fenotipo Layer 3 gate).
  *
- * Design: thin orchestrator over single-responsibility helpers (E1 / ADR-021).
- *   resolvers           — Patient, PlanDefinition, ActivityDefinitions, CONFIRMED profile
- *   journey-sequencer   — per-action offsets (relatedAction + timing)
- *   condition-evaluator — applicability gating via FHIRPath over %profile / %patient
- *   activity-factory    — ActivityDefinition -> concrete request resource
- *   transaction-builder — assemble the atomic CarePlan + steps bundle
+ * Input contract (FHIR R4 Parameters — repo convention, mirrors evaluate-fenotipo):
+ *   { resourceType: "Parameters",
+ *     parameter: [
+ *       { name: "patient", valueReference: { reference: "Patient/<id>" } },  // or valueString=<id>
+ *       { name: "combo",   valueString: "pd-combo-bio-energy" },
+ *       { name: "start",   valueString: "2026-06-01T09:00:00.000Z" },         // optional
+ *       { name: "profile", valueReference: { ... } }                          // optional
+ *     ]
+ *   }
  *
  * Returns the persisted CarePlan.
  */
 export async function handler(
   medplum: MedplumClient,
-  event: BotEvent<ApplyPlanDefinitionInput>,
+  event: BotEvent<Parameters | ApplyPlanDefinitionInput>,
 ): Promise<CarePlan> {
-  const input = event.input;
-  if (!input?.patient || !input?.combo) {
+  const args = extractArgs(event.input);
+  if (!args.patient || !args.combo) {
     throw new Error('apply-plandefinition requires { patient, combo }');
   }
 
   // 1. Resolve patient + plan.
   const [patient, plan] = await Promise.all([
-    resolvePatient(medplum, input.patient),
-    resolvePlanDefinition(medplum, input.combo),
+    resolvePatient(medplum, args.patient),
+    resolvePlanDefinition(medplum, args.combo),
   ]);
 
   // 2. Resolve the phenotype profile.
   //    Explicit input wins (test / médico-supplied); otherwise read the CONFIRMED
   //    Observation. No confirmed profile => fail-closed (do not act on provisional).
   let profile: unknown;
-  if (input.profile !== undefined) {
-    profile = await resolveProfile(medplum, input.profile);
+  if (args.profile !== undefined) {
+    profile = await resolveProfile(medplum, args.profile);
   } else {
     const confirmed = await resolveConfirmedProfile(medplum, patient);
     if (!confirmed) {
@@ -81,23 +85,34 @@ export async function handler(
     );
   }
 
-  // 3. Resolve the ActivityDefinitions referenced by the plan.
-  const activityDefs = await resolveActivityDefinitions(medplum, plan);
+  // 3. Resolve the ActivityDefinitions referenced by the plan, plus the gate machinery:
+  //    the Library (declarative %library.* gates) and the patient's clinical %context
+  //    (Observations/Consents/Encounters). Loaded once; reused for every action's gates.
+  const [activityDefs, libraryIndex, clinicalContext] = await Promise.all([
+    resolveActivityDefinitions(medplum, plan),
+    loadLibraryGates(medplum).catch((err) => {
+      console.warn(`[apply-plandefinition] no se pudo cargar la Library: ${(err as Error).message}`);
+      return undefined;
+    }),
+    loadClinicalContext(medplum, patient),
+  ]);
 
   // 4. Build the journey context.
   const ctx: JourneyContext = {
     patient,
     patientRef: patientReference(patient),
     profile,
-    start: input.start ? new Date(input.start) : new Date(),
-    author: input.author,
+    start: args.start ? new Date(args.start) : new Date(),
+    author: args.author,
   };
 
-  // 5. Assemble the atomic transaction.
+  // 5. Assemble the atomic transaction. %library gates are evaluated against the clinical
+  //    context; fail-closed (a gate not-implemented/not-met removes its action).
   const { bundle, carePlanFullUrl, materialized, skipped } = buildJourneyTransaction(
     plan,
     activityDefs,
     ctx,
+    { libraryIndex, clinicalContext },
   );
 
   console.log(
@@ -130,4 +145,53 @@ function extractCarePlan(response: Bundle, carePlanFullUrl: string): CarePlan {
 
   const statuses = entries.map((e) => e.response?.status).join(', ');
   throw new Error(`apply-plandefinition: CarePlan not found in transaction response (statuses: ${statuses})`);
+}
+
+/**
+ * Normalized arguments extracted from `event.input`. Internal use only.
+ * The bot accepts FHIR Parameters (repo convention, matching evaluate-fenotipo) and also
+ * a plain object {patient, combo, ...} for tests / direct invocation.
+ */
+interface ExtractedArgs {
+  patient?: string | Reference;
+  combo?: string;
+  start?: string;
+  profile?: Reference | Record<string, unknown>;
+  author?: AuthorReference;
+}
+
+/**
+ * Extract the bot arguments from `event.input`. The repo convention (evaluate-fenotipo,
+ * lab-ingestion) is that `$execute` delivers a FHIR Parameters resource — read named
+ * parameters via `parameter[].name` and the appropriate `value[x]` (valueReference /
+ * valueString). For tests and programmatic calls we also accept a plain object.
+ */
+function extractArgs(input: unknown): ExtractedArgs {
+  if (!input || typeof input !== 'object') {
+    return {};
+  }
+  const obj = input as { resourceType?: string };
+
+  if (obj.resourceType === 'Parameters') {
+    const params = (input as Parameters).parameter ?? [];
+    const find = (name: string): ParametersParameter | undefined => params.find((p) => p.name === name);
+
+    const patientParam = find('patient') ?? find('subject');
+    const patient: string | Reference | undefined =
+      patientParam?.valueReference ?? patientParam?.valueString ?? undefined;
+
+    const profileParam = find('profile');
+    const profile = profileParam?.valueReference ?? (profileParam?.resource as Record<string, unknown> | undefined);
+
+    return {
+      patient,
+      combo: find('combo')?.valueString,
+      start: find('start')?.valueDateTime ?? find('start')?.valueString,
+      profile,
+      author: find('author')?.valueReference as AuthorReference | undefined,
+    };
+  }
+
+  // Plain object form (tests / direct calls).
+  return input as ExtractedArgs;
 }
